@@ -1,0 +1,3554 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бизнесті ұйымдастыру | Магистратураға дайындық</title>
+
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --line:#e6e9f0;
+      --primary:#2f5bea;
+      --primary2:#1d3fb8;
+      --soft:#eef3ff;
+      --green:#15a36d;
+      --red:#dc3f4d;
+      --amber:#f59e0b;
+      --shadow:0 18px 45px rgba(23,32,51,.08);
+      --radius:22px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(47,91,234,.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(21,163,109,.10), transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .page{
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      padding:22px 0 12px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      background:rgba(255,255,255,.82);
+      backdrop-filter: blur(16px);
+      border:1px solid rgba(230,233,240,.9);
+      border-radius:26px;
+      padding:14px 16px;
+      box-shadow:0 10px 30px rgba(23,32,51,.06);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:900;
+      background:linear-gradient(135deg, var(--primary), var(--green));
+      box-shadow:0 10px 24px rgba(47,91,234,.22);
+    }
+
+    .brand-title{
+      font-size:15px;
+      font-weight:850;
+      line-height:1.15;
+    }
+
+    .brand-subtitle{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:3px;
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:8px;
+    }
+
+    .nav-links a{
+      font-size:13px;
+      font-weight:750;
+      color:#344054;
+      padding:9px 12px;
+      border-radius:999px;
+      background:#f8f9fc;
+      border:1px solid #edf0f5;
+      transition:.18s ease;
+    }
+
+    .nav-links a:hover{
+      background:var(--soft);
+      color:var(--primary2);
+      border-color:#d9e3ff;
+    }
+
+    .hero{
+      padding:58px 0 28px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-main{
+      background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(246,248,255,.98));
+      border:1px solid rgba(230,233,240,.95);
+      border-radius:34px;
+      padding:38px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-main::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      right:-90px;
+      top:-80px;
+      background:radial-gradient(circle, rgba(47,91,234,.16), transparent 68%);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary2);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .eyebrow span{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 5px rgba(21,163,109,.12);
+    }
+
+    h1{
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      margin-bottom:18px;
+      max-width:760px;
+    }
+
+    .hero-text{
+      color:#475467;
+      font-size:17px;
+      max-width:720px;
+      margin-bottom:24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:none;
+      cursor:pointer;
+      border-radius:15px;
+      padding:13px 18px;
+      font-size:14px;
+      font-weight:850;
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+      box-shadow:0 12px 26px rgba(47,91,234,.22);
+    }
+
+    .btn-primary:hover{
+      background:var(--primary2);
+      transform:translateY(-1px);
+    }
+
+    .btn-light{
+      background:white;
+      color:#344054;
+      border:1px solid var(--line);
+    }
+
+    .btn-light:hover{
+      background:#f8f9fc;
+      transform:translateY(-1px);
+    }
+
+    .hero-side{
+      display:grid;
+      gap:16px;
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(230,233,240,.95);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:0 14px 36px rgba(23,32,51,.07);
+    }
+
+    .stat-num{
+      font-size:34px;
+      font-weight:950;
+      letter-spacing:-.04em;
+      color:var(--primary2);
+    }
+
+    .stat-label{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:4px;
+    }
+
+    .section{
+      padding:34px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .section-kicker{
+      color:var(--primary2);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .section h2{
+      font-size:clamp(25px, 3vw, 38px);
+      line-height:1.08;
+      letter-spacing:-.035em;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      font-size:15px;
+      max-width:610px;
+    }
+
+    .source-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:18px;
+    }
+
+    .source-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 14px 34px rgba(23,32,51,.06);
+      position:relative;
+      overflow:hidden;
+      min-height:230px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .source-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:6px;
+      background:linear-gradient(90deg, var(--primary), var(--green));
+    }
+
+    .source-card.pending::before{
+      background:linear-gradient(90deg, var(--amber), #facc15);
+    }
+
+    .source-tag{
+      display:inline-flex;
+      width:max-content;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f2f4f7;
+      color:#475467;
+      font-size:12px;
+      font-weight:850;
+      margin-bottom:15px;
+    }
+
+    .source-card h3{
+      font-size:22px;
+      line-height:1.18;
+      letter-spacing:-.02em;
+      margin-bottom:10px;
+    }
+
+    .source-card p{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:16px;
+    }
+
+    .mini-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .mini-list span{
+      font-size:12px;
+      font-weight:800;
+      color:#344054;
+      border:1px solid #e7eaf1;
+      background:#fafbff;
+      padding:7px 9px;
+      border-radius:999px;
+    }
+
+    .topic-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .topic-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      min-height:116px;
+      transition:.18s ease;
+    }
+
+    .topic-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(23,32,51,.08);
+      border-color:#d8e2ff;
+    }
+
+    .topic-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .topic-num{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--primary2);
+      font-weight:950;
+      font-size:13px;
+    }
+
+    .level{
+      font-size:11px;
+      font-weight:950;
+      color:#475467;
+      background:#f2f4f7;
+      border-radius:999px;
+      padding:5px 8px;
+    }
+
+    .level.b{
+      background:#fff7ed;
+      color:#b45309;
+    }
+
+    .level.c{
+      background:#fef2f2;
+      color:#b42318;
+    }
+
+    .topic-card h4{
+      font-size:14px;
+      line-height:1.32;
+      color:#1d2939;
+    }
+
+    .book-shell{
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .chapter-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .chapter-card{
+      border:1px solid #e8ecf4;
+      background:linear-gradient(180deg, #ffffff, #fafbff);
+      border-radius:20px;
+      padding:18px;
+      min-height:150px;
+      transition:.18s ease;
+    }
+
+    .chapter-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(23,32,51,.08);
+    }
+
+    .chapter-label{
+      display:inline-flex;
+      padding:6px 9px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary2);
+      font-size:11px;
+      font-weight:950;
+      margin-bottom:12px;
+    }
+
+    .chapter-card h3{
+      font-size:17px;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+
+    .chapter-card p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .content-block{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:26px;
+      box-shadow:0 12px 30px rgba(23,32,51,.05);
+      margin-top:18px;
+    }
+
+    .content-block h3{
+      font-size:25px;
+      letter-spacing:-.025em;
+      margin-bottom:12px;
+    }
+
+    .note{
+      border-left:5px solid var(--primary);
+      background:#f5f8ff;
+      color:#344054;
+      padding:14px 16px;
+      border-radius:16px;
+      margin:16px 0;
+      font-size:14px;
+    }
+
+    .theory-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .theory-card{
+      border:1px solid #e8ecf4;
+      border-radius:18px;
+      background:#fcfdff;
+      padding:16px;
+    }
+
+    .theory-card strong{
+      display:block;
+      margin-bottom:6px;
+      color:#1d2939;
+    }
+
+    .theory-card p{
+      color:#667085;
+      font-size:14px;
+    }
+
+    .test-box{
+      margin-top:20px;
+      border-top:1px dashed #d9dee9;
+      padding-top:20px;
+    }
+
+    .question{
+      background:#fbfcff;
+      border:1px solid #e8ecf4;
+      border-radius:20px;
+      padding:18px;
+      margin:14px 0;
+    }
+
+    .question-title{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .q-num{
+      min-width:30px;
+      height:30px;
+      border-radius:10px;
+      background:#eef3ff;
+      color:#1d3fb8;
+      display:grid;
+      place-items:center;
+      font-size:13px;
+      font-weight:950;
+    }
+
+    .q-text{
+      font-weight:850;
+      line-height:1.38;
+    }
+
+    .options{
+      display:grid;
+      gap:9px;
+    }
+
+    .option{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      background:white;
+      border:1px solid #e7eaf1;
+      border-radius:14px;
+      padding:11px 12px;
+      cursor:pointer;
+      transition:.15s ease;
+      font-size:14px;
+      color:#344054;
+    }
+
+    .option:hover{
+      border-color:#cad6ff;
+      background:#f8faff;
+    }
+
+    .option input{
+      margin-top:4px;
+      accent-color:var(--primary);
+    }
+
+    .explanation{
+      display:none;
+      margin-top:12px;
+      padding:13px 14px;
+      border-radius:15px;
+      background:#f8fafc;
+      border:1px solid #e8ecf4;
+      color:#475467;
+      font-size:14px;
+    }
+
+    .question.correct{
+      border-color:rgba(21,163,109,.45);
+      background:#f6fffb;
+    }
+
+    .question.incorrect{
+      border-color:rgba(220,63,77,.42);
+      background:#fff8f8;
+    }
+
+    .option.right-answer{
+      border-color:rgba(21,163,109,.55);
+      background:#ecfdf5;
+      color:#067647;
+      font-weight:800;
+    }
+
+    .option.wrong-answer{
+      border-color:rgba(220,63,77,.45);
+      background:#fff1f2;
+    }
+
+    .result-panel{
+      display:none;
+      margin-top:18px;
+      border:1px solid #d9e3ff;
+      background:#f5f8ff;
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .result-panel strong{
+      color:#1d3fb8;
+    }
+
+    .footer-space{
+      height:40px;
+    }
+
+    @media (max-width: 920px){
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:34px;
+      }
+
+      .source-grid,
+      .topic-grid,
+      .chapter-grid,
+      .theory-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-head{
+        display:block;
+      }
+
+      .section-desc{
+        margin-top:8px;
+      }
+
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+      }
+
+      .hero-main{
+        padding:28px;
+      }
+    }
+
+    @media (max-width: 520px){
+      .page{
+        width:min(100% - 20px, 1180px);
+      }
+
+      .nav-links a{
+        font-size:12px;
+        padding:8px 10px;
+      }
+
+      .hero-main{
+        padding:22px;
+        border-radius:26px;
+      }
+
+      .source-card,
+      .content-block{
+        padding:18px;
+      }
+
+      h1{
+        font-size:34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="#home">
+          <div class="brand-mark">Б</div>
+          <div>
+            <div class="brand-title">Бизнесті ұйымдастыру</div>
+            <div class="brand-subtitle">Магистратураға дайындық</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#sources">Әдебиеттер</a>
+          <a href="#exam-topics">15 тақырып</a>
+          <a href="#book-one">1-әдебиет</a>
+          <a href="#tests">Тесттер</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-main">
+          <div class="eyebrow"><span></span> КТ форматына бағытталған дайындық сайты</div>
+          <h1>Бизнесті ұйымдастыру пәні бойынша толық дайындық</h1>
+          <p class="hero-text">
+            Бұл сайтта материал ресми әдебиеттердің нақты бөлімдері бойынша беріледі.
+            Әр бөлімнен КТ спецификациясындағы 15 тақырыпқа сәйкес келетін ұғымдар,
+            құқықтық нормалар, жіктеулер, жоспарлау элементтері, келісімдер,
+            қаржы және тиімділік көрсеткіштері іріктеліп, тест тапсырмалары жасалады.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sources">Әдебиеттерді көру</a>
+            <a class="btn btn-light" href="#exam-topics">Ресми тақырыптар</a>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="stat-card">
+            <div class="stat-num">15</div>
+            <div class="stat-label">ресми тақырып — материалды іріктеу фильтрі</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">20</div>
+            <div class="stat-label">бір ресми тест нұсқасындағы тапсырма саны</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">дайындық сайтында сұрақ саны бөлім мазмұнына қарай беріледі</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="sources">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Әдебиеттер</div>
+            <h2>Осы сайтқа кіретін негізгі материалдар</h2>
+          </div>
+          <p class="section-desc">
+            Бір сайт ішінде бірінші және екінші әдебиет сақталады. Екінші файл кейін қосылғанда
+            дайын карточка ішіне оның нақты бөлімдері енгізіледі.
+          </p>
+        </div>
+
+        <div class="source-grid">
+          <a class="source-card" href="#book-one">
+            <div>
+              <div class="source-tag">1-әдебиет · қосылды</div>
+              <h3>Қазақстан Республикасының Кәсіпкерлік кодексі</h3>
+              <p>
+                Қазақстан Республикасының 2015 жылғы 29 қазандағы № 375-V ҚРЗ Кодексі.
+                Бұл әдебиеттен кәсіпкерлік ұғымы, кәсіпкерлік субъектілері,
+                шағын, орта және ірі бизнес өлшемдері, мемлекеттік реттеу,
+                қолдау және әлеуметтік жауапкершілікке қатысты материалдар алынады.
+              </p>
+
+              <div class="mini-list">
+                <span>кәсіпкерлік ұғымы</span>
+                <span>субъектілер</span>
+                <span>санаттар</span>
+                <span>тіркеу</span>
+                <span>реттеу</span>
+                <span>қолдау</span>
+              </div>
+            </div>
+
+            <button class="btn btn-light" type="button">1-әдебиетке өту</button>
+          </a>
+
+          <div class="source-card pending">
+            <div>
+              <div class="source-tag">2-әдебиет · кейін қосылады</div>
+              <h3>Екінші әдебиет</h3>
+              <p>
+                Файл кейін жіберіледі. Бұл карточка сайт құрылымында алдын ала сақталады,
+                сондықтан екінші әдебиетті қосқанда сайтты қайта құру қажет болмайды.
+              </p>
+
+              <div class="mini-list">
+                <span>атауы кейін енгізіледі</span>
+                <span>бөлімдері кейін қосылады</span>
+                <span>тесттері бөлек жасалады</span>
+              </div>
+            </div>
+
+            <button class="btn btn-light" type="button">Кейін толтырылады</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="exam-topics">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Ресми фильтр</div>
+            <h2>КТ спецификациясындағы 15 тақырып</h2>
+          </div>
+          <p class="section-desc">
+            Бұл тақырыптар сайттың негізгі навигациясы емес. Негізгі құрылым әдебиет пен оның нақты
+            бөлімдері бойынша жүреді. Осы 15 тақырып тек бөлім ішіндегі маңызды материалды таңдауға қолданылады.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">1</div><span class="level">A</span></div>
+            <h4>Кәсіпкерлік және бизнес түсінігі. Түрлері мен нысандары</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">2</div><span class="level">A</span></div>
+            <h4>Қазақстан Республикасындағы кәсіпкерліктің ұйымдық-құқықтық формалары</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">3</div><span class="level">A</span></div>
+            <h4>Жеке, шағын, орта және ірі бизнесті ұйымдастыру ерекшеліктері</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">4</div><span class="level">A</span></div>
+            <h4>Инновациялық кәсіпкерлік</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">5</div><span class="level">A</span></div>
+            <h4>Бизнес субъектілерін құру, мемлекеттік тіркеу, тарату және банкроттық</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">6</div><span class="level">A</span></div>
+            <h4>Бизнесті мемлекеттік реттеу</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">7</div><span class="level b">B</span></div>
+            <h4>Бизнестің әлеуметтік жауапкершілігі</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">8</div><span class="level b">B</span></div>
+            <h4>Бизнес-жоспарлаудың негіздері</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">9</div><span class="level b">B</span></div>
+            <h4>Маркетингтік жоспар және нарықты талдау</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">10</div><span class="level b">B</span></div>
+            <h4>Ресурстарды жоспарлау</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">11</div><span class="level b">B</span></div>
+            <h4>Өндіріс жоспары</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">12</div><span class="level c">C</span></div>
+            <h4>Қаржылық жоспарлау</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">13</div><span class="level c">C</span></div>
+            <h4>Бизнестегі келісімдер мен келісімшарттар</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">14</div><span class="level c">C</span></div>
+            <h4>Бизнестің экономикалық тиімділігі</h4>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-top"><div class="topic-num">15</div><span class="level c">C</span></div>
+            <h4>Бизнес жобаны қорғау</h4>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="book-one">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">1-әдебиет</div>
+            <h2>Қазақстан Республикасының Кәсіпкерлік кодексі</h2>
+          </div>
+          <p class="section-desc">
+            Бұл бөлімде Кодекстің КТ тақырыптарына тікелей сәйкес келетін баптары мен тараулары
+            бойынша материалдар және тесттер беріледі.
+          </p>
+        </div>
+
+        <div class="book-shell">
+          <div class="chapter-grid">
+            <a class="chapter-card" href="#code-chapter-1">
+              <div class="chapter-label">1-тарау</div>
+              <h3>Кәсіпкерлік субъектілері мен мемлекеттің өзара іс-қимылының құқықтық негіздері</h3>
+              <p>Кәсіпкерлік ұғымы, қағидаттар, кәсіпкерлік еркіндігі, теңдік, адал бәсекелестік және әлеуметтік жауапкершілік негіздері.</p>
+            </a>
+
+            <a class="chapter-card" href="#code-chapter-2">
+              <div class="chapter-label">2-тарау</div>
+              <h3>Кәсіпкерлік субъектілері және олардың жұмыс істеу шарттары</h3>
+              <p>Кәсіпкерлік субъектілері, шағын, микро, орта және ірі бизнес санаттары, құқықтар мен міндеттер, коммерциялық құпия.</p>
+            </a>
+
+            <a class="chapter-card" href="#code-chapter-3">
+              <div class="chapter-label">Дара кәсіпкерлік</div>
+              <h3>Дара кәсіпкерлік, өзіндік және бірлескен кәсіпкерлік</h3>
+              <p>Дара кәсіпкерлік ұғымы, өзіндік кәсіпкерлік, бірлескен кәсіпкерлік нысандары және мемлекеттік тіркеу тәртібі.</p>
+            </a>
+
+            <a class="chapter-card" href="#code-chapter-4">
+              <div class="chapter-label">Әлеуметтік жауапкершілік</div>
+              <h3>Қайырымдылық, әлеуметтік кәсіпкерлік және әлеуметтік бастамалар</h3>
+              <p>Кәсіпкерлік субъектілерінің әлеуметтік жауапкершілігі, әлеуметтік кәсіпкерлік субъектілері және қолдау элементтері.</p>
+            </a>
+
+            <a class="chapter-card" href="#code-chapter-5">
+              <div class="chapter-label">7-тарау</div>
+              <h3>Кәсіпкерлікті мемлекеттік реттеу</h3>
+              <p>Мемлекеттік реттеудің мақсаттары, міндеттері, шектері, реттегіш құралдар және кәсіпкерлікке ықпал ету тәртібі.</p>
+            </a>
+
+            <a class="chapter-card" href="#code-chapter-6">
+              <div class="chapter-label">Қолдау</div>
+              <h3>Жеке кәсіпкерлікті және шағын, орта кәсіпкерлікті мемлекеттік қолдау</h3>
+              <p>Мемлекеттік қолдау шаралары, инфрақұрылым, қолдау түрлері және әлеуметтік кәсіпкерлікті қолдау бағыттары.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tests">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Келесі кодтар</div>
+            <h2>Бөлімдер бойынша теория және тесттер</h2>
+          </div>
+          <p class="section-desc">
+            Келесі кодтан бастап әр нақты бөлім ішіне қысқаша теория, негізгі ұғымдар,
+            КТ-стиль тесттер және нәтижені көрсету жүйесі қосылады.
+          </p>
+        </div>
+      </section>
+            <section class="section" id="code-chapter-1">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · 1-тарау</div>
+          <h3>Кәсіпкерлік субъектілері мен мемлекеттің өзара іс-қимылының құқықтық негіздері</h3>
+
+          <p>
+            Бұл бөлімде кәсіпкерліктің құқықтық мәні, кәсіпкерлік қызметті шектеу тәртібі,
+            кәсіпкерлік субъектілері мен мемлекеттің өзара іс-қимыл қағидаттары,
+            кәсіпкерлік еркіндігі, субъектілер теңдігі, меншікке қол сұғылмаушылық,
+            адал бәсекелестік, мемлекеттік органдар қызметінің ашықтығы,
+            кәсіпкерлік субъектілерінің адалдық презумпциясы және әлеуметтік жауапкершілікті
+            ынталандыру мәселелері қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін бұл бөлімнің негізгі маңызы: кәсіпкерлік ұғымын дәл тану,
+            жеке және мемлекеттік кәсіпкерліктің құқықтық негізін ажырату,
+            кәсіпкерлік қызметтің тәуекел мен мүліктік жауапкершілік арқылы жүзеге асатынын білу,
+            сондай-ақ мемлекет пен кәсіпкерлік субъектілерінің өзара іс-қимыл қағидаттарын нақты ажырату.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Кәсіпкерлік ұғымы</strong>
+              <p>
+                Кәсіпкерлік — мүлікті пайдалану, тауар өндіру, сату, жұмыс орындау немесе қызмет көрсету
+                арқылы таза кіріс алуға бағытталған дербес, бастамашыл қызмет.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Құқықтық негізі</strong>
+              <p>
+                Кәсіпкерлік жеке меншік құқығына, шаруашылық жүргізу құқығына немесе мемлекеттік
+                кәсіпорынды жедел басқару құқығына негізделуі мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Тәуекел және жауапкершілік</strong>
+              <p>
+                Кәсіпкерлік қызмет кәсіпкер атынан, оның тәуекел етуімен және мүліктік жауапкершілігімен
+                жүзеге асырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Құқықтық шектеу</strong>
+              <p>
+                Кәсіпкерлік қызмет тек Қазақстан Республикасының заңдарымен ғана шектелуі мүмкін.
+                Жекелеген субъектілерге артықшылық беретін актілер қабылдауға жол берілмейді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекетпен өзара іс-қимыл мақсаты</strong>
+              <p>
+                Өзара іс-қимыл кәсіпкерлікті дамытуға, қоғам үшін қолайлы жағдайлар жасауға және
+                кәсіпкерлік бастаманы ынталандыруға бағытталады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Негізгі қағидаттар</strong>
+              <p>
+                Заңдылық, кәсіпкерлік еркіндігі, субъектілер теңдігі, меншікке қол сұғылмаушылық,
+                адал бәсекелестік, ашықтық, тиімді реттеу және әлеуметтік жауапкершілікті ынталандыру.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-1-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеу қажет.
+            </p>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">
+                  Кәсіпкерлік қызметтің Кодекстегі негізгі құқықтық белгісі
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мүлікті қоғамдық қажеттілік үшін бөлуге бағытталған әкімшілік әрекет</label>
+                <label class="option"><input type="checkbox" value="B"> Таза кіріс алуға бағытталған дербес, бастамашыл қызмет</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік орган атынан орындалатын бақылау қызметі</label>
+                <label class="option"><input type="checkbox" value="D"> Тауар айналымын лицензиялық тәртіппен есепке алу рәсімі</label>
+                <label class="option"><input type="checkbox" value="E"> Коммерциялық құпияны мемлекеттік дерекқорда тіркеу жүйесі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Кәсіпкерлік таза кіріс алуға бағытталған дербес әрі бастамашыл қызмет ретінде анықталады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">
+                  Кәсіпкерлік қызмет арқылы таза кіріс алу тәсілдеріне жататын әрекеттер
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мүлікті пайдалану</label>
+                <label class="option"><input type="checkbox" value="B"> Нормативтік актіні қабылдау</label>
+                <label class="option"><input type="checkbox" value="C"> Тауарларды өндіру және сату</label>
+                <label class="option"><input type="checkbox" value="D"> Мемлекеттік бақылау жүргізу</label>
+                <label class="option"><input type="checkbox" value="E"> Жұмыстарды орындау және қызметтер көрсету</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Кодексте кәсіпкерлік мүлікті пайдалану, тауар өндіру, сату, жұмыс орындау және қызмет көрсету арқылы таза кіріс алуға бағытталған қызмет ретінде беріледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">
+                  Кәсіпкерлік қызмет жүзеге асырылатын құқықтық негіздер
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік бақылау актісіне негізделген өкілеттік</label>
+                <label class="option"><input type="checkbox" value="B"> Жеке меншік құқығына негізделген жеке кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="C"> Сараптама кеңесінің қорытындысына негізделген қызмет</label>
+                <label class="option"><input type="checkbox" value="D"> Шаруашылық жүргізу немесе жедел басқару құқығына негізделген мемлекеттік кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="E"> Рұқсат беру талабының жобасына негізделген реттеу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D. Кәсіпкерлік жеке меншік құқығына, сондай-ақ шаруашылық жүргізу немесе мемлекеттік кәсіпорынды жедел басқару құқығына негізделуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">
+                  Кәсіпкерлік қызметтің кәсіпкер атынан жүргізілуімен тікелей байланысты белгі
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік органның келісім беруі</label>
+                <label class="option"><input type="checkbox" value="B"> Тұтынушы мүддесінің басымдығы</label>
+                <label class="option"><input type="checkbox" value="C"> Тәуекел ету және мүліктік жауапкершілік</label>
+                <label class="option"><input type="checkbox" value="D"> Нарықтағы бағаны әкімшілік бекіту</label>
+                <label class="option"><input type="checkbox" value="E"> Мониторинг қорытындысын жариялау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Кәсіпкерлік қызмет кәсіпкер атынан, оның тәуекелімен және мүліктік жауапкершілігімен жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">
+                  Кәсіпкерлік қызметті шектеудің Кодексте белгіленген құқықтық шарты
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жергілікті атқарушы органның ауызша тапсырмасымен шектеледі</label>
+                <label class="option"><input type="checkbox" value="B"> Сараптама кеңесінің ұсынысымен шектеледі</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлер бірлестігінің ішкі ережесімен шектеледі</label>
+                <label class="option"><input type="checkbox" value="D"> Қазақстан Республикасының заңдарымен ғана шектеледі</label>
+                <label class="option"><input type="checkbox" value="E"> Нарық қатысушыларының келісімімен шектеледі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Кәсіпкерлік қызметке шектеу тек Қазақстан Республикасының заңдары арқылы қойылуы мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">
+                  Кәсіпкерлік субъектілері мен мемлекеттің өзара іс-қимылының қағидаттары
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Заңдылық</label>
+                <label class="option"><input type="checkbox" value="B"> Бағаны бірыңғай бекіту</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік еркіндігі</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің теңдігі</label>
+                <label class="option"><input type="checkbox" value="E"> Реттеу шығындарын көбейту</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Өзара іс-қимыл қағидаттарына заңдылық, кәсіпкерлік еркіндігі және кәсіпкерлік субъектілерінің теңдігі кіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">
+                  Меншікке қол сұғылмаушылық қағидатының мазмұнына сәйкес келетін нормалар
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік орган кәсіпкер мүлкін әкімшілік тәртіппен еркін алады</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің меншігі заңмен қорғалады</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкер мүлкі міндетті түрде мемлекеттік тізілімге өткізіледі</label>
+                <label class="option"><input type="checkbox" value="D"> Мүлік нарық үлесіне қарай қайта бөлінеді</label>
+                <label class="option"><input type="checkbox" value="E"> Сот шешімінсіз мүліктен айыруға жол берілмейді</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Меншікке қол сұғылмаушылық кәсіпкер мүлкінің заңмен қорғалуын және сот шешімінсіз мүліктен айырмауды білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">
+                  Адал бәсекелестік қағидатына қайшы келетін әрекет
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Тауар нарығында еркін өткізуге жағдай жасау</label>
+                <label class="option"><input type="checkbox" value="B"> Экономикалық қызмет еркіндігін қамтамасыз ету</label>
+                <label class="option"><input type="checkbox" value="C"> Бәсекелестікті шектеуге немесе жоюға бағытталған қызмет</label>
+                <label class="option"><input type="checkbox" value="D"> Тауар нарықтарының тиімді жұмыс істеуін қолдау</label>
+                <label class="option"><input type="checkbox" value="E"> Экономикалық кеңістіктің біртұтастығын сақтау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Адал бәсекелестік қағидаты бәсекелестікті шектеуге немесе жоюға бағытталған қызметке тыйым салады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">
+                  Мемлекеттік органдар қызметінің ашықтығы және ақпаратқа қолжетімділік қағидатына сәйкес келетін ережелер
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік органдар қызметі заңда белгіленген шекте жариялы және ашық болуы тиіс</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерге қажетті ақпарат әрқашан жабық режимде беріледі</label>
+                <label class="option"><input type="checkbox" value="C"> Рәсімдер әр органда әртүрлі түсіндірілуге тиіс</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің мүдделерін қозғайтын шешімдер бойынша ашықтық қамтамасыз етіледі</label>
+                <label class="option"><input type="checkbox" value="E"> Құжаттарға мөр қоюды барлық қаржы ұйымдары талап етуге міндетті</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Ашықтық қағидаты мемлекеттік органдар қызметінің жариялылығын және кәсіпкерлер мүддесін қозғайтын шешімдердің ашықтығын білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,C,E">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">
+                  Кәсіпкерлікті мемлекеттік реттеудің тиімділігіне қол жеткізу шарттары
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Реттеу талаптарын түсініксіз әрі көпмағыналы белгілеу</label>
+                <label class="option"><input type="checkbox" value="B"> Реттегіш құралдарды қалыптастыру шарттарын сақтау</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттің кәсіпкерлік субъектілеріне деген сенімін арттыру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілері үшін кедергілерді көбейту</label>
+                <label class="option"><input type="checkbox" value="E"> Мемлекеттік реттеудің жүйелілігі мен дәйектілігін қамтамасыз ету</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, C, E. Тиімді мемлекеттік реттеу реттегіш құралдардың шарттарын сақтауға, сенімді арттыруға және реттеу жүйелілігіне негізделеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">11</div>
+                <div class="q-text">
+                  Кәсіпкерлік субъектілерінің адалдық презумпциясына сәйкес келетін тұжырымдар
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Міндеттерді орындау кезінде кәсіпкер әрекеттерінің адалдығы көзделеді</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкер ұсынған деректер бастапқыда жалған деп есептеледі</label>
+                <label class="option"><input type="checkbox" value="C"> Заңнаманың белгісіздіктері мемлекеттік орган пайдасына түсіндіріледі</label>
+                <label class="option"><input type="checkbox" value="D"> Заңнаманың барлық белгісіздіктері кәсіпкерлік субъектісінің пайдасына түсіндіріледі</label>
+                <label class="option"><input type="checkbox" value="E"> Дәлелдерді негіздеу міндеті кәсіпкерлік бірлестіктеріне жүктеледі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Адалдық презумпциясы кәсіпкердің адал әрекетін көздейді, ал заңнамадағы белгісіздіктер кәсіпкерлік субъектісінің пайдасына түсіндіріледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">12</div>
+                <div class="q-text">
+                  Кәсіпкерліктің әлеуметтік жауапкершілігін ынталандыру қағидатының мазмұны
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің нарықтағы үлесін әкімшілік бөлу</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің есептілігін қысқа мерзімде көбейту</label>
+                <label class="option"><input type="checkbox" value="C"> Әлеуметтік жауапкершілікті кәсіпкерлік қызметке енгізуді көтермелеу</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің мүлкін мемлекеттік бақылауға беру</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік қызмет түрлерін ведомстволық шешіммен шектеу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Бұл қағидат кәсіпкерлік субъектілерінің өз қызметіне әлеуметтік жауапкершілікті енгізуін мемлекет тарапынан көтермелеуді білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">13</div>
+                <div class="q-text">
+                  Мемлекеттің кәсіпкерлік субъектілерінің ісіне заңсыз араласуына жол бермеу қағидатына сәйкес келетін мазмұн
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік орган кәсіпкерлік бірлестіктерге өз функцияларын жүктей алады</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттің кәсіпкерлік субъектілерінің ісіне заңсыз араласуына жол берілмейді</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік субъектілері мемлекеттік органдардың ішкі қызметін алмастырады</label>
+                <label class="option"><input type="checkbox" value="D"> Бірлестіктер мемлекеттік органдардың міндеттерін тұрақты орындайды</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік бірлестіктерге мемлекеттік органдардың функцияларын жүктеуге жол берілмейді</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Кодексте мемлекеттің кәсіпкерлік субъектілерінің ісіне заңсыз араласуына және кәсіпкерлік бірлестіктерге мемлекеттік органдар функцияларын жүктеуге жол берілмейтіні көрсетіледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">14</div>
+                <div class="q-text">
+                  Кәсіпкерлік субъектілерін дамытуға арналған мемлекеттік ынталандыру мазмұны
+                </div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Қолайлы құқықтық жағдайлар жасау</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік бастаманы ведомстволық тыйыммен шектеу</label>
+                <label class="option"><input type="checkbox" value="C"> Қолайлы экономикалық жағдайлар жасау</label>
+                <label class="option"><input type="checkbox" value="D"> Қолайлы әлеуметтік жағдайлар мен кепілдіктер жасау</label>
+                <label class="option"><input type="checkbox" value="E"> Нарық субъектілерінің теңдігін алып тастау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Мемлекет кәсіпкерлік бастаманы іске асыру үшін құқықтық, экономикалық, әлеуметтік жағдайлар мен кепілдіктер жасауға бағытталған шаралар жүргізеді.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-1-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-1-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+            <section class="section" id="code-chapter-2">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · 2-тарау · 1-параграф</div>
+          <h3>Кәсіпкерлік субъектілері және олардың жұмыс істеу шарттары</h3>
+
+          <p>
+            Бұл бөлімде кәсіпкерлік субъектілерінің құқықтық құрамы, жеке және мемлекеттік
+            кәсіпкерлік субъектілерінің айырмашылығы, кәсіпкерлік субъектілерін микро,
+            шағын, орта және ірі санаттарға жатқызу өлшемшарттары, кәсіпкерлік
+            субъектілерінің құқықтары мен міндеттері, сондай-ақ коммерциялық құпияны
+            қорғау тәртібі қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін негізгі бағыт: кәсіпкерлік субъектілерін дұрыс ажырату, бизнес көлемін
+            жұмыскерлер саны мен жылдық орташа кіріс арқылы тану, кәсіпкердің құқықтары
+            мен міндеттерін шатастырмау, коммерциялық құпияны қорғау мазмұнын білу.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Кәсіпкерлік субъектілері</strong>
+              <p>
+                Кәсіпкерлік қызметті жүзеге асыратын азаматтар, қандастар, мемлекеттік емес
+                коммерциялық заңды тұлғалар және мемлекеттік кәсіпорындар кәсіпкерлік
+                субъектілері болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Жеке кәсіпкерлік субъектілері</strong>
+              <p>
+                Азаматтар, қандастар және мемлекеттік емес коммерциялық заңды тұлғалар
+                жеке кәсіпкерлік субъектілеріне жатады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекеттік кәсіпкерлік субъектілері</strong>
+              <p>
+                Мемлекеттік кәсіпорындар мемлекеттік кәсіпкерлік субъектілері болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Санаттарға бөлу өлшемшарттары</strong>
+              <p>
+                Кәсіпкерлік субъектілері жұмыскерлердің жылдық орташа санына және жылдық
+                орташа кіріске қарай микро, шағын, орта және ірі санаттарға бөлінеді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекеттік статистика үшін өлшем</strong>
+              <p>
+                Мемлекеттік статистика мақсаттары үшін жұмыскерлердің жылдық орташа санының
+                өлшемшарты ғана пайдаланылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекеттік қолдау үшін өлшем</strong>
+              <p>
+                Мемлекеттік қолдау көрсету және заңнама нормаларын қолдану үшін екі өлшемшарт:
+                жұмыскерлердің жылдық орташа саны және жылдық орташа кіріс пайдаланылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Микрокәсіпкерлік</strong>
+              <p>
+                Жұмыскерлерінің жылдық орташа саны он бес адамнан аспайтын немесе жылдық
+                орташа кірісі белгіленген шектен аспайтын шағын кәсіпкерлік субъектілері
+                микрокәсіпкерлік субъектілері болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Шағын кәсіпкерлік</strong>
+              <p>
+                Заңды тұлға құрмаған дара кәсіпкерлер және жұмыскерлер саны мен жылдық
+                орташа кірісі белгіленген шектерден аспайтын заңды тұлғалар шағын кәсіпкерлік
+                субъектілері болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Орта кәсіпкерлік</strong>
+              <p>
+                Шағын және ірі кәсіпкерлік субъектілеріне жатпайтын дара кәсіпкерлер мен
+                заңды тұлғалар орта кәсіпкерлік субъектілері болып есептеледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Ірі кәсіпкерлік</strong>
+              <p>
+                Жұмыскерлерінің жылдық орташа саны екі жүз елу адамнан асатын және/немесе
+                жылдық орташа кірісі белгіленген жоғары шектен асатын субъектілер ірі
+                кәсіпкерлік субъектілеріне жатады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Кәсіпкерлік субъектілерінің құқықтары</strong>
+              <p>
+                Кәсіпкерлік қызмет түрлерін жүзеге асыру, нарықтарға қол жеткізу, жалдамалы
+                еңбекті пайдалану, филиалдар мен өкілдіктер құру, бағаны дербес белгілеу,
+                бірлестіктерге қатысу және өз құқықтарын қорғау құқықтары бар.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Кәсіпкерлік субъектілерінің міндеттері</strong>
+              <p>
+                Заңнаманы сақтау, тауарлар мен қызметтердің қауіпсіздігі мен сапасын қамтамасыз
+                ету, тұтынушыларға толық ақпарат беру, қажет болған жағдайда рұқсат алу немесе
+                хабарлама жіберу, табиғатты сақтау міндеттері белгіленеді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Коммерциялық құпия</strong>
+              <p>
+                Коммерциялық құпияны қорғау ақпаратты заңсыз алуға, таратуға немесе пайдалануға
+                тыйым салуды білдіреді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Коммерциялық құпияны қорғау шаралары</strong>
+              <p>
+                Құпия ақпарат тізбесін айқындау, оған қол жеткізуді шектеу, жұмыс тәртібін
+                белгілеу және қолжетімділік алған адамдарды есепке алу қолданылуы мүмкін.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-2-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Кәсіпкерлік субъектілеріне жататын тұлғалар мен ұйымдар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік қызметті жүзеге асыратын азаматтар</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік қызметті реттейтін мемлекеттік комитеттер</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік емес коммерциялық заңды тұлғалар</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерін тексеретін қадағалау органдары</label>
+                <label class="option"><input type="checkbox" value="E"> Мемлекеттік кәсіпорындар</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Кәсіпкерлік қызметті жүзеге асыратын азаматтар, қандастар, мемлекеттік емес коммерциялық заңды тұлғалар және мемлекеттік кәсіпорындар кәсіпкерлік субъектілері болып табылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Жеке кәсіпкерлік субъектілерінің құрамына кіретіндер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік кәсіпорындар</label>
+                <label class="option"><input type="checkbox" value="B"> Азаматтар және қандастар</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік бақылау органдары</label>
+                <label class="option"><input type="checkbox" value="D"> Мемлекеттік емес коммерциялық заңды тұлғалар</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік жөніндегі уәкілетті орган</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D. Жеке кәсіпкерлік субъектілеріне азаматтар, қандастар және мемлекеттік емес коммерциялық заңды тұлғалар жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Мемлекеттік кәсіпкерлік субъектісі болып танылатын ұйым</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жеке кәсіпкерлік субъектілерінің бірлестігі</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік емес коммерциялық заңды тұлға</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік кәсіпорын</label>
+                <label class="option"><input type="checkbox" value="D"> Аккредиттелген кәсіпкерлер қауымдастығы</label>
+                <label class="option"><input type="checkbox" value="E"> Дара кәсіпкер ретінде тіркелген жеке тұлға</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Кодексте мемлекеттік кәсіпорындар мемлекеттік кәсіпкерлік субъектілері ретінде көрсетіледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Кәсіпкерлік субъектілерін санаттарға жатқызудың негізгі өлшемшарттары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жұмыскерлердің жылдық орташа саны</label>
+                <label class="option"><input type="checkbox" value="B"> Нарықтағы бәсекелестер саны</label>
+                <label class="option"><input type="checkbox" value="C"> Филиалдардың географиялық орналасуы</label>
+                <label class="option"><input type="checkbox" value="D"> Жылдық орташа кіріс</label>
+                <label class="option"><input type="checkbox" value="E"> Жарнамалық шығындардың көлемі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Кәсіпкерлік субъектілері жұмыскерлердің жылдық орташа санына және жылдық орташа кіріске қарай санаттарға бөлінеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Кәсіпкерлік субъектілерінің Кодексте көрсетілген санаттары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Шағын кәсіпкерлік субъектілері</label>
+                <label class="option"><input type="checkbox" value="B"> Салалық кәсіпкерлік субъектілері</label>
+                <label class="option"><input type="checkbox" value="C"> Орта кәсіпкерлік субъектілері</label>
+                <label class="option"><input type="checkbox" value="D"> Ірі кәсіпкерлік субъектілері</label>
+                <label class="option"><input type="checkbox" value="E"> Аймақтық кәсіпкерлік субъектілері</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Кодексте кәсіпкерлік субъектілері шағын, оның ішінде микро, орта және ірі кәсіпкерлік субъектілері болып бөлінеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Мемлекеттік статистика мақсаттары үшін қолданылатын өлшемшарт</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жылдық орташа кіріс және жарғылық капитал</label>
+                <label class="option"><input type="checkbox" value="B"> Жұмыскерлердің жылдық орташа саны</label>
+                <label class="option"><input type="checkbox" value="C"> Таза пайда және өндірістік қуат</label>
+                <label class="option"><input type="checkbox" value="D"> Активтер көлемі және нарық үлесі</label>
+                <label class="option"><input type="checkbox" value="E"> Филиал саны және келісімшарт көлемі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Мемлекеттік статистика мақсаттары үшін жұмыскерлердің жылдық орташа санының өлшемшарты ғана пайдаланылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,E">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Мемлекеттік қолдау көрсету мақсатында қолданылатын өлшемшарттар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жұмыскерлердің жылдық орташа саны</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпорынның жарнамалық белсенділігі</label>
+                <label class="option"><input type="checkbox" value="C"> Сауда белгісінің танымалдық деңгейі</label>
+                <label class="option"><input type="checkbox" value="D"> Тауар ассортиментінің кеңдігі</label>
+                <label class="option"><input type="checkbox" value="E"> Жылдық орташа кіріс</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, E. Мемлекеттік қолдау және заңнама нормаларын қолдану үшін жұмыскерлердің жылдық орташа саны мен жылдық орташа кіріс пайдаланылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Микрокәсіпкерлік субъектісін сипаттайтын белгі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жұмыскерлер саны екі жүз елу адамнан асатын субъект</label>
+                <label class="option"><input type="checkbox" value="B"> Шағын және ірі кәсіпкерлікке жатпайтын субъект</label>
+                <label class="option"><input type="checkbox" value="C"> Жұмыскерлерінің жылдық орташа саны он бес адамнан аспайтын шағын кәсіпкерлік субъектісі</label>
+                <label class="option"><input type="checkbox" value="D"> Жылдық орташа кірісі ірі кәсіпкерлік шегінен асатын субъект</label>
+                <label class="option"><input type="checkbox" value="E"> Мемлекеттік кәсіпорын нысанында әрекет ететін субъект</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Микрокәсіпкерлік субъектілеріне жұмыскерлерінің жылдық орташа саны он бес адамнан аспайтын немесе кірісі белгіленген шектен аспайтын шағын кәсіпкерлік субъектілері жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">Орта кәсіпкерлік субъектілерін айқындауға сәйкес келетін сипаттама</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Микрокәсіпкерлік өлшемімен ғана анықталатын субъектілер</label>
+                <label class="option"><input type="checkbox" value="B"> Ірі кәсіпкерлік өлшемшарттарының екеуіне де сай келетін субъектілер</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік статистикада ғана есепке алынатын субъектілер</label>
+                <label class="option"><input type="checkbox" value="D"> Шағын және ірі кәсіпкерлік субъектілеріне жатпайтын субъектілер</label>
+                <label class="option"><input type="checkbox" value="E"> Тек заңды тұлға құрмаған дара кәсіпкерлер</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Шағын және ірі кәсіпкерлік субъектілеріне жатпайтын дара кәсіпкерлер мен заңды тұлғалар орта кәсіпкерлік субъектілері болып табылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Ірі кәсіпкерлік субъектісіне жатқызу белгілері</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жұмыскерлерінің жылдық орташа саны он бес адамнан аспайды</label>
+                <label class="option"><input type="checkbox" value="B"> Жұмыскерлерінің жылдық орташа саны екі жүз елу адамнан асады</label>
+                <label class="option"><input type="checkbox" value="C"> Жеке кәсіпкерлік субъектісі ретінде тіркелмеген жеке тұлға болады</label>
+                <label class="option"><input type="checkbox" value="D"> Орта кәсіпкерлікке жатпайтын кез келген коммерциялық ұйым болады</label>
+                <label class="option"><input type="checkbox" value="E"> Жылдық орташа кірісі белгіленген жоғары шектен асады</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Ірі кәсіпкерлікке жұмыскерлерінің жылдық орташа саны екі жүз елу адамнан асатын және/немесе жылдық орташа кірісі белгіленген шектен асатын субъектілер жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">11</div>
+                <div class="q-text">Жеке кәсіпкерлік субъектілерінің құқықтарына жататын әрекеттер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік қызметтің заңда тыйым салынбаған түрлерін жүзеге асыру</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік бақылау нәтижелерін өз бетінше бекіту</label>
+                <label class="option"><input type="checkbox" value="C"> Жалдамалы еңбекті пайдалана отырып кәсіпкерлік жүргізу</label>
+                <label class="option"><input type="checkbox" value="D"> Филиалдар мен өкілдіктер құру</label>
+                <label class="option"><input type="checkbox" value="E"> Басқа кәсіпкерлерге міндетті рұқсат беру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Жеке кәсіпкерлік субъектілері кәсіпкерлік қызмет түрлерін жүзеге асыруға, жалдамалы еңбекті пайдалануға, филиалдар мен өкілдіктер құруға құқылы.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D,E">
+              <div class="question-title">
+                <div class="q-num">12</div>
+                <div class="q-text">Кәсіпкерлік субъектілерінің міндеттеріне жататын талаптар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Нарықтағы барлық бәсекелестерге баға белгілеу</label>
+                <label class="option"><input type="checkbox" value="B"> Қазақстан Республикасының заңнамасын сақтау</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік органның ішкі функцияларын орындау</label>
+                <label class="option"><input type="checkbox" value="D"> Тауарлардың, жұмыстардың және көрсетілетін қызметтердің қауіпсіздігі мен сапасын қамтамасыз ету</label>
+                <label class="option"><input type="checkbox" value="E"> Тұтынушыларға тауарлар мен қызметтер туралы толық және анық ақпарат беру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D, E. Кәсіпкерлік субъектілері заңнаманы сақтауға, қауіпсіздік пен сапаны қамтамасыз етуге және тұтынушыларға толық әрі анық ақпарат беруге міндетті.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">13</div>
+                <div class="q-text">Коммерциялық құпияны қорғаудың құқықтық мәні</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жалпыға қолжетімді ақпаратты міндетті жариялау тәртібі</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің статистикалық есептілігін қалыптастыру жүйесі</label>
+                <label class="option"><input type="checkbox" value="C"> Құпия ақпаратты заңсыз алуға, таратуға немесе пайдалануға тыйым салу</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерін санаттарға бөлу өлшемшарты</label>
+                <label class="option"><input type="checkbox" value="E"> Нарықтағы бағаларды еркін салыстыру рәсімі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Коммерциялық құпияны қорғау коммерциялық құпияны құрайтын ақпаратты заңсыз алуға, таратуға немесе пайдалануға тыйым салуды білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">14</div>
+                <div class="q-text">Коммерциялық құпияны қорғау бойынша қолданылатын шаралар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Коммерциялық құпияны құрайтын ақпарат тізбесін айқындау</label>
+                <label class="option"><input type="checkbox" value="B"> Барлық ішкі ақпаратты жалпыға қолжетімді ету</label>
+                <label class="option"><input type="checkbox" value="C"> Құпия ақпаратпен жұмыс істеу тәртібін белгілеу</label>
+                <label class="option"><input type="checkbox" value="D"> Құпия ақпаратты бәсекелестерге тең тарату</label>
+                <label class="option"><input type="checkbox" value="E"> Құпия ақпаратқа қолжетімділік алған адамдарды есепке алу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Қорғау шараларына құпия ақпарат тізбесін айқындау, жұмыс тәртібін белгілеу және қолжетімділік алған адамдарды есепке алу кіреді.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-2-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-2-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="code-chapter-3">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · 2-тарау · 2-параграф</div>
+          <h3>Дара кәсіпкерлік, өзіндік және бірлескен кәсіпкерлік</h3>
+
+          <p>
+            Бұл бөлімде дара кәсіпкерліктің құқықтық ұғымы, оның өзіндік және бірлескен
+            түрлері, өзіндік кәсіпкерлікті жүзеге асыру шарттары, бірлескен кәсіпкерлік
+            нысандары, дара кәсіпкердің өз атынан әрекет етуі, әлеуметтік қорғау құқығы,
+            сондай-ақ дара кәсіпкер ретінде мемлекеттік тіркеу тәртібі қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін негізгі бағыт: дара кәсіпкерлікті жалпы кәсіпкерлік ұғымынан ажырату,
+            өзіндік және бірлескен кәсіпкерлік айырмашылығын білу, ерлі-зайыптылар
+            кәсіпкерлігі, отбасылық кәсіпкерлік және жай серіктестік нысандарын тану,
+            міндетті мемлекеттік тіркеу шарттарын дұрыс белгілеу.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Дара кәсіпкерлік ұғымы</strong>
+              <p>
+                Қазақстан Республикасы азаматтарының және қандастардың таза кіріс алуға
+                бағытталған, жеке тұлғалардың меншігіне негізделген, олардың атынан,
+                тәуекелімен және мүліктік жауапкершілігімен жүзеге асырылатын дербес,
+                бастамашыл қызметі дара кәсіпкерлік болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Дара кәсіпкерлік түрлері</strong>
+              <p>
+                Дара кәсіпкерлік өзіндік кәсіпкерлік немесе бірлескен кәсіпкерлік түрінде
+                жүзеге асырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Өзіндік кәсіпкерлік</strong>
+              <p>
+                Өзіндік кәсіпкерлікті бір жеке тұлға өзіне меншік құқығымен тиесілі мүлік
+                негізінде немесе мүлікті пайдалануға мүмкіндік беретін өзге құқық бойынша
+                дербес жүзеге асырады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Жұбайының келісімі</strong>
+              <p>
+                Некеде тұрған жеке тұлғаның өзіндік кәсіпкерлік жүргізуі үшін жұбайының
+                келісімі талап етілмейді, бірақ ортақ мүлік пайдаланылса, нотариат куәландырған
+                келісім қажет болуы мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Бірлескен кәсіпкерлік</strong>
+              <p>
+                Бірлескен кәсіпкерлікті дара кәсіпкерлер тобы ортақ меншікке тиесілі мүлік
+                негізінде немесе мүлікті бірлесіп пайдалануға мүмкіндік беретін құқық бойынша
+                жүзеге асырады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Бірлескен кәсіпкерлік мәмілелері</strong>
+              <p>
+                Бірлескен кәсіпкерлікке байланысты мәмілелер барлық қатысушылардың атынан
+                жасалады, құқықтар мен міндеттер де олардың атынан иеленеді және жүзеге асырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Бірлескен кәсіпкерлік нысандары</strong>
+              <p>
+                Ерлі-зайыптылар кәсіпкерлігі, отбасылық кәсіпкерлік, жай серіктестік және
+                заңдарда көзделген өзге де нысандар бірлескен кәсіпкерлікке жатады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Дара кәсіпкердің өз атынан әрекет етуі</strong>
+              <p>
+                Дара кәсіпкер өз атынан кәсіпкерлік қызметпен айналысады, құқықтар мен
+                міндеттерді иеленеді және жүзеге асырады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мәміле жасау кезінде көрсету</strong>
+              <p>
+                Азамат немесе қандас кәсіпкерлік қызметіне байланысты мәмілелер жасағанда
+                өзінің дара кәсіпкер ретінде әрекет ететінін көрсетуге тиіс.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Көрсетудің болмауы</strong>
+              <p>
+                Дара кәсіпкер ретінде әрекет ететінін көрсетпеу оны өз міндеттемелері бойынша
+                тәуекел мен жауапкершіліктен босатпайды.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Әлеуметтік қорғау</strong>
+              <p>
+                Дара кәсіпкер әлеуметтік және зейнетақымен қамсыздандыру, әлеуметтік сақтандыру
+                жүйесін пайдалануға құқылы.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекеттік тіркеу</strong>
+              <p>
+                Дара кәсіпкер ретінде мемлекеттік тіркеу жеке тұлғаны мәлімделген тұрған жері
+                бойынша мемлекеттік кіріс органында есепке қоюды білдіреді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Міндетті тіркеу шарттары</strong>
+              <p>
+                Жалдамалы жұмыскерлердің еңбегін тұрақты негізде пайдаланатын немесе жеке
+                кәсіпкерліктен белгіленген шектен асатын жылдық кірісі бар жеке тұлғалар
+                дара кәсіпкер ретінде міндетті тіркеледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Тіркеу тәртібі</strong>
+              <p>
+                Дара кәсіпкер ретінде тіркелу үшін жеке тұлға рұқсаттар мен хабарламалардың
+                мемлекеттік ақпараттық жүйесі немесе өзге ақпараттандыру объектілері арқылы
+                белгіленген нысанда хабарлама ұсынады.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-3-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Дара кәсіпкерліктің құқықтық мәнін білдіретін анықтама</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік кәсіпорын атынан жүргізілетін шаруашылық қызмет</label>
+                <label class="option"><input type="checkbox" value="B"> Жеке тұлғалардың меншігіне негізделген, таза кіріс алуға бағытталған дербес қызмет</label>
+                <label class="option"><input type="checkbox" value="C"> Заңды тұлғалардың жарғылық капиталы арқылы жүргізілетін бірлескен қызмет</label>
+                <label class="option"><input type="checkbox" value="D"> Мемлекеттік орган рұқсатымен ғана орындалатын бақылау рәсімі</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік субъектілерінің тізілімін қалыптастыру қызметі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Дара кәсіпкерлік жеке тұлғалардың меншігіне негізделген, олардың атынан және тәуекелімен жүзеге асырылатын таза кіріс алуға бағытталған дербес қызмет.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Дара кәсіпкерлікті жүзеге асыру түрлері</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Өзіндік кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="C"> Акционерлік кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="D"> Бірлескен кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="E"> Коммерциялық емес кәсіпкерлік</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Дара кәсіпкерлік өзіндік немесе бірлескен кәсіпкерлік түрінде жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Өзіндік кәсіпкерлікке тән белгі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Бірнеше дара кәсіпкердің ортақ меншік негізінде әрекет етуі</label>
+                <label class="option"><input type="checkbox" value="B"> Барлық қатысушылар атынан мәміле жасалуы</label>
+                <label class="option"><input type="checkbox" value="C"> Бір жеке тұлғаның өз мүлкі негізінде дербес әрекет етуі</label>
+                <label class="option"><input type="checkbox" value="D"> Ерлі-зайыптылардың ортақ бірлескен меншігі негізінде жүргізілуі</label>
+                <label class="option"><input type="checkbox" value="E"> Ортақ үлестік меншікке негізделген жай серіктестік болуы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Өзіндік кәсіпкерлікті бір жеке тұлға өзіне тиесілі мүлік негізінде дербес жүзеге асырады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Өзіндік кәсіпкерлікте жұбайының келісіміне қатысты дұрыс тұжырымдар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Некеде тұрған адамның өзіндік кәсіпкерлік жүргізуі үшін әрқашан жұбайының келісімі қажет</label>
+                <label class="option"><input type="checkbox" value="B"> Некеде тұрған адамның өзіндік кәсіпкерлік жүргізуі үшін жұбайының келісімі талап етілмейді</label>
+                <label class="option"><input type="checkbox" value="C"> Өзіндік кәсіпкерлік тек ерлі-зайыптылардың ортақ келісімімен тіркеледі</label>
+                <label class="option"><input type="checkbox" value="D"> Жұбайының келісімі болмаған жағдайда дара кәсіпкерлік жүргізуге толық тыйым салынады</label>
+                <label class="option"><input type="checkbox" value="E"> Ортақ мүлік пайдаланылса, нотариат куәландырған келісім қажет болуы мүмкін</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Некеде тұрған тұлғаның өзіндік кәсіпкерлік жүргізуі үшін келісім талап етілмейді, бірақ ортақ мүлік пайдаланылған жағдайда нотариат куәландырған келісім қажет болуы мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Бірлескен кәсіпкерліктің негізгі белгісі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Дара кәсіпкерлер тобының ортақ меншік негізінде кәсіпкерлік жүргізуі</label>
+                <label class="option"><input type="checkbox" value="B"> Бір жеке тұлғаның өзіне тиесілі мүлікпен дербес кәсіпкерлік жүргізуі</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік кәсіпорынның шаруашылық жүргізу құқығымен әрекет етуі</label>
+                <label class="option"><input type="checkbox" value="D"> Коммерциялық емес ұйымның жарғылық мақсат бойынша қызмет етуі</label>
+                <label class="option"><input type="checkbox" value="E"> Заңды тұлғаның акционерлік капитал арқылы басқарылуы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: A. Бірлескен кәсіпкерлікті дара кәсіпкерлер тобы ортақ меншік немесе мүлікті бірлесіп пайдалану құқығы негізінде жүзеге асырады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Бірлескен кәсіпкерлік нысандары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Ерлі-зайыптылар кәсіпкерлігі</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік кәсіпорын кәсіпкерлігі</label>
+                <label class="option"><input type="checkbox" value="C"> Отбасылық кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="D"> Акционерлік қоғам кәсіпкерлігі</label>
+                <label class="option"><input type="checkbox" value="E"> Жай серіктестік</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Бірлескен кәсіпкерлік нысандарына ерлі-зайыптылар кәсіпкерлігі, отбасылық кәсіпкерлік және жай серіктестік жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Ерлі-зайыптылар кәсіпкерлігі негізделетін меншік түрі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік кәсіпорынның шаруашылық жүргізу құқығы</label>
+                <label class="option"><input type="checkbox" value="B"> Коммерциялық заңды тұлғаның жарғылық капиталы</label>
+                <label class="option"><input type="checkbox" value="C"> Қатысушылардың ортақ үлестік меншігі</label>
+                <label class="option"><input type="checkbox" value="D"> Ерлі-зайыптылардың ортақ бірлескен меншігі</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік субъектілерінің тізіліміндегі мүлік деректері</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Ерлі-зайыптылар кәсіпкерлігі ерлі-зайыптылардың ортақ бірлескен меншігі негізінде жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Жай серіктестік нысанындағы дара кәсіпкерлік негізделетін меншік түрі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Ерлі-зайыптылардың ортақ бірлескен меншігі</label>
+                <label class="option"><input type="checkbox" value="B"> Ортақ үлестік меншік</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік мүлікті жедел басқару құқығы</label>
+                <label class="option"><input type="checkbox" value="D"> Шаруашылық жүргізу құқығындағы мемлекеттік мүлік</label>
+                <label class="option"><input type="checkbox" value="E"> Акционерлердің дауыс беретін акциялары</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Жай серіктестік нысанындағы дара кәсіпкерлік ортақ үлестік меншік негізінде жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">Бірлескен кәсіпкерлік кезінде мәмілелер мен міндеттерге қатысты дұрыс ережелер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мәмілелер барлық қатысушылардың атынан жасалады</label>
+                <label class="option"><input type="checkbox" value="B"> Мәмілелер тек бір қатысушының жеке мүлкі бойынша жасалады</label>
+                <label class="option"><input type="checkbox" value="C"> Құқықтар тек уәкілетті мемлекеттік орган атынан жүзеге асырылады</label>
+                <label class="option"><input type="checkbox" value="D"> Құқықтар мен міндеттер қатысушылардың атынан иеленеді және жүзеге асырылады</label>
+                <label class="option"><input type="checkbox" value="E"> Міндеттер коммерциялық заңды тұлға құрылғаннан кейін ғана пайда болады</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Бірлескен кәсіпкерлікте мәмілелер барлық қатысушылардың атынан жасалып, құқықтар мен міндеттер олардың атынан жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Дара кәсіпкердің кәсіпкерлік қызметті жүзеге асыру тәртібіне тән белгі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік кәсіпорын атынан әрекет етеді</label>
+                <label class="option"><input type="checkbox" value="B"> Құқықтар мен міндеттерді кәсіпкерлер бірлестігі атынан иеленеді</label>
+                <label class="option"><input type="checkbox" value="C"> Өз атынан кәсіпкерлік қызметпен айналысады</label>
+                <label class="option"><input type="checkbox" value="D"> Міндеттемелерді тек заңды тұлға құрғаннан кейін орындайды</label>
+                <label class="option"><input type="checkbox" value="E"> Мәмілелерді мемлекеттік орган атынан жасайды</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Дара кәсіпкер өз атынан кәсіпкерлік қызметпен айналысады, құқықтар мен міндеттерді иеленеді және жүзеге асырады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">11</div>
+                <div class="q-text">Дара кәсіпкердің мәміле жасау кезіндегі мәртебесіне қатысты дұрыс тұжырымдар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Дара кәсіпкер мәртебесін көрсетпеу оны барлық міндеттемеден босатады</label>
+                <label class="option"><input type="checkbox" value="B"> Мәміле жасағанда өзінің дара кәсіпкер ретінде әрекет ететінін көрсетуге тиіс</label>
+                <label class="option"><input type="checkbox" value="C"> Дара кәсіпкер мәртебесін көрсету тек мемлекеттік кәсіпорындарға міндетті</label>
+                <label class="option"><input type="checkbox" value="D"> Мәртебені көрсетпеу кәсіпкерлік тәуекелді мемлекеттік органға ауыстырады</label>
+                <label class="option"><input type="checkbox" value="E"> Мәртебені көрсетпеу тәуекел мен жауапкершіліктен босатпайды</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Азамат немесе қандас мәміле жасағанда дара кәсіпкер ретінде әрекет ететінін көрсетуге тиіс; мұндай көрсетудің болмауы оны тәуекел мен жауапкершіліктен босатпайды.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <div class="question-title">
+                <div class="q-num">12</div>
+                <div class="q-text">Дара кәсіпкердің әлеуметтік қорғауға қатысты құқығы</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Әлеуметтік және зейнетақымен қамсыздандыру, әлеуметтік сақтандыру жүйесін пайдалану</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік бақылау органдарының өкілеттіктерін орындау</label>
+                <label class="option"><input type="checkbox" value="C"> Басқа кәсіпкерлердің әлеуметтік төлемдерін белгілеу</label>
+                <label class="option"><input type="checkbox" value="D"> Қызметкерлердің зейнетақы жүйесіне қатысуын шектеу</label>
+                <label class="option"><input type="checkbox" value="E"> Әлеуметтік сақтандыру нормаларын жеке ережемен ауыстыру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: A. Дара кәсіпкер әлеуметтік және зейнетақымен қамсыздандыру, әлеуметтік сақтандыру жүйесін пайдалануға құқылы.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">13</div>
+                <div class="q-text">Дара кәсіпкер ретінде мемлекеттік тіркеудің құқықтық мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жеке тұлғаны коммерциялық заңды тұлға ретінде қайта құру</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектісін мемлекеттік кәсіпорын тізіміне енгізу</label>
+                <label class="option"><input type="checkbox" value="C"> Дара кәсіпкердің мүлкін мемлекеттік меншікке тіркеу</label>
+                <label class="option"><input type="checkbox" value="D"> Жеке тұлғаны мемлекеттік кіріс органында дара кәсіпкер ретінде есепке қою</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкердің барлық мәмілелерін алдын ала бекіту</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Мемлекеттік тіркеу жеке тұлғаны мәлімделген тұрған жері бойынша мемлекеттік кіріс органында дара кәсіпкер ретінде есепке қоюды білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C">
+              <div class="question-title">
+                <div class="q-num">14</div>
+                <div class="q-text">Дара кәсіпкер ретінде міндетті мемлекеттік тіркеуге негіз болатын шарттар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жалдамалы жұмыскерлердің еңбегін тұрақты негізде пайдалану</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік қызметті жоспарлау кезеңінде болу</label>
+                <label class="option"><input type="checkbox" value="C"> Жеке кәсіпкерліктен белгіленген шектен асатын жылдық кірістің болуы</label>
+                <label class="option"><input type="checkbox" value="D"> Бір реттік тұрмыстық мәміле жасауы</label>
+                <label class="option"><input type="checkbox" value="E"> Тұтынушы ретінде тауар сатып алуы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C. Жалдамалы жұмыскерлердің еңбегін тұрақты негізде пайдаланатын немесе жеке кәсіпкерліктен белгіленген шектен асатын жылдық кірісі бар тұлғалар міндетті тіркеледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">15</div>
+                <div class="q-text">Дара кәсіпкерді мемлекеттік тіркеу тәртібіне сәйкес келетін әрекеттер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Міндетті түрде қағаз түріндегі бірнеше рұқсат құжатын жинау</label>
+                <label class="option"><input type="checkbox" value="B"> Рұқсаттар мен хабарламалардың мемлекеттік ақпараттық жүйесі арқылы хабарлама ұсыну</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік кәсіпорын ретінде жарғылық капитал қалыптастыру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің бірлестігінен тіркеу куәлігін алу</label>
+                <label class="option"><input type="checkbox" value="E"> Белгіленген нысан бойынша хабарлама ұсыну</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Дара кәсіпкер ретінде тіркелу үшін жеке тұлға мемлекеттік ақпараттық жүйе немесе өзге ақпараттандыру объектілері арқылы белгіленген нысанда хабарлама ұсынады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">16</div>
+                <div class="q-text">Бірлескен дара кәсіпкерлікті тіркеу кезінде қолданылатын құжаттық талаптар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Уәкілетті адам бірлескен кәсіпкерліктің барлық қатысушыларының атынан қол қойылған сенімхат ұсынады</label>
+                <label class="option"><input type="checkbox" value="B"> Әр қатысушы жеке заңды тұлға ретінде қайта тіркеледі</label>
+                <label class="option"><input type="checkbox" value="C"> Қатысушылар мемлекеттік кәсіпорын жарғысын бекітеді</label>
+                <label class="option"><input type="checkbox" value="D"> Бірлескен дара кәсіпкерліктің уәкілетті адамы хабарлама береді</label>
+                <label class="option"><input type="checkbox" value="E"> Қатысушылар кәсіпкерлік қызметтен бас тарту туралы өтініш береді</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Бірлескен дара кәсіпкерлік тіркелген кезде уәкілетті адам хабарлама беріп, барлық қатысушылар атынан қол қойылған сенімхат ұсынады.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-3-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-3-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+            <section class="section" id="code-chapter-4">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · әлеуметтік жауапкершілік</div>
+          <h3>Әлеуметтік жауапкершілік және әлеуметтік кәсіпкерлік</h3>
+
+          <p>
+            Бұл бөлімде кәсіпкерлік субъектілерінің әлеуметтік жауапкершілігі,
+            әлеуметтік кәсіпкерлік бастамаларын қолдау, әлеуметтік кәсіпкерлік субъектілерінің
+            санаттары және әлеуметтік кәсіпкерлік субъектілерінің тізілімі қарастырылады.
+            КТ үшін бұл материал бизнестің әлеуметтік жауапкершілігі тақырыбымен тікелей байланысты.
+          </p>
+
+          <div class="note">
+            Негізгі есте сақтайтын ой: әлеуметтік жауапкершілік — кәсіпкерлік субъектісінің
+            қоғамға пайдалы әлеуметтік, экономикалық және экологиялық бастамаларға қатысуымен
+            байланысты. Әлеуметтік кәсіпкерлік әлеуметтік міндеттерді шешуге бағытталған
+            кәсіпкерлік қызмет ретінде қарастырылады.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Әлеуметтік жауапкершілік</strong>
+              <p>
+                Кәсіпкерлік субъектілерінің өз қызметіне әлеуметтік жауапкершілікті енгізуін
+                мемлекет кепілдендіреді және көтермелейді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Әлеуметтік кәсіпкерлікті қолдау</strong>
+              <p>
+                Әлеуметтік кәсіпкерлікті дамыту бастамаларын мемлекеттік органдар,
+                ұлттық холдингтер, ұлттық даму институттары және өзге де ұйымдар қолдайды.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қолдау тәртібі</strong>
+              <p>
+                Әлеуметтік кәсіпкерлік бастамаларын қолдау кәсіпкерлік жөніндегі уәкілетті орган
+                айқындайтын тәртіппен жүзеге асырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Әлеуметтік кәсіпкерлік субъектілері</strong>
+              <p>
+                Әлеуметтік кәсіпкерлік субъектілері заңда көрсетілген шарттардың біріне немесе
+                бірнешеуіне сәйкестігіне қарай санаттарға бөлінеді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Бірінші санаттың бағыты</strong>
+              <p>
+                Бірінші санат әлеуметтік осал топтарға жататын азаматтарды жұмыспен қамтуға
+                немесе олардың қатысуымен қызмет жүргізуге байланысты.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Әлеуметтік осал топтар</strong>
+              <p>
+                Мұндай топтарға мүгедектігі бар адамдар, мүгедектігі бар баланы тәрбиелеп отырған
+                ата-аналар, зейнеткерлер, жетім балалар ұйымдарының түлектері, пробация есебіндегі
+                адамдар және басқа да әлеуметтік қолдауды қажет ететін азаматтар жатады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Әлеуметтік кәсіпкерлік субъектілерінің тізілімі</strong>
+              <p>
+                Әлеуметтік кәсіпкерлік субъектілерінің санаттары туралы деректерді пайдалану үшін
+                кәсіпкерлік жөніндегі уәкілетті орган арнайы тізілім жүргізеді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Тізілім мазмұны</strong>
+              <p>
+                Тізілімде дара кәсіпкердің немесе заңды тұлғаның атауы, тіркелген күні,
+                сәйкестендіру нөмірі, заңды мекенжайы, тізілімге енгізілу күні және санаты
+                көрсетіледі.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-4-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Кәсіпкерліктің әлеуметтік жауапкершілігінің негізгі мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің баға белгілеу құқығын шектеу</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік қызметті тек мемлекеттік кәсіпорын арқылы жүргізу</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік қызметке қоғамға пайдалы әлеуметтік бастамаларды енгізу</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерін міндетті түрде қайта тіркеу</label>
+                <label class="option"><input type="checkbox" value="E"> Нарықтағы барлық субъектілердің кірісін теңестіру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Әлеуметтік жауапкершілік кәсіпкерлік қызметтің қоғамға пайдалы әлеуметтік бағытпен байланысуын білдіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Әлеуметтік жауапкершілікті дамытуға қатысты мемлекеттің рөлі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің әлеуметтік жауапкершілікті енгізуін көтермелеу</label>
+                <label class="option"><input type="checkbox" value="B"> Әлеуметтік бастамаларды коммерциялық қызметтен толық бөлу</label>
+                <label class="option"><input type="checkbox" value="C"> Әлеуметтік жобаларды тек мемлекеттік мекемелерге бекіту</label>
+                <label class="option"><input type="checkbox" value="D"> Әлеуметтік жауапкершілікті кәсіпкерлік қызметке енгізуге кепілдік беру</label>
+                <label class="option"><input type="checkbox" value="E"> Әлеуметтік кәсіпкерлікті нарық субъектісі ретінде мойындамау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Кодекс бойынша мемлекет кәсіпкерлік субъектілерінің әлеуметтік жауапкершілікті енгізуіне кепілдік береді және оны көтермелейді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,C,E">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлікті дамыту бастамаларын қолдауға қатысатын субъектілер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Тек жеке тұтынушылар бірлестіктері</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік органдар</label>
+                <label class="option"><input type="checkbox" value="C"> Ұлттық холдингтер</label>
+                <label class="option"><input type="checkbox" value="D"> Тек коммерциялық банктердің филиалдары</label>
+                <label class="option"><input type="checkbox" value="E"> Ұлттық даму институттары</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, C, E. Әлеуметтік кәсіпкерлік бастамаларын мемлекеттік органдар, ұлттық холдингтер, ұлттық даму институттары және өзге де ұйымдар қолдайды.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлік бастамаларын қолдау тәртібін айқындайтын орган</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік статистика саласындағы уәкілетті орган</label>
+                <label class="option"><input type="checkbox" value="B"> Монополияға қарсы реттеу органы</label>
+                <label class="option"><input type="checkbox" value="C"> Жергілікті өкілді орган</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік жөніндегі уәкілетті орган</label>
+                <label class="option"><input type="checkbox" value="E"> Азаматтық авиация саласындағы уәкілетті ұйым</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Әлеуметтік кәсіпкерлік бастамаларын қолдау кәсіпкерлік жөніндегі уәкілетті орган айқындайтын тәртіппен жүзеге асырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлік субъектілерін санаттарға бөлудің негізі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Заңда көрсетілген шарттардың біріне немесе бірнешеуіне сәйкестігі</label>
+                <label class="option"><input type="checkbox" value="B"> Нарықтағы жарнамалық белсенділік деңгейі</label>
+                <label class="option"><input type="checkbox" value="C"> Экспорттық келісімшарттардың жалпы саны</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектісінің фирмалық стилі</label>
+                <label class="option"><input type="checkbox" value="E"> Өнім ассортиментінің маусымдық өзгеруі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: A. Әлеуметтік кәсіпкерлік субъектілері заңда белгіленген шарттарға сәйкестігіне қарай санаттарға бөлінеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Әлеуметтік кәсіпкерліктің бірінші санатына байланысты азаматтар топтары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік қызметті уақытша тоқтатқан заңды тұлғалар</label>
+                <label class="option"><input type="checkbox" value="B"> Мүгедектігі бар адамдар</label>
+                <label class="option"><input type="checkbox" value="C"> Нарықтық талдау жүргізетін кеңесшілер</label>
+                <label class="option"><input type="checkbox" value="D"> Баға белгілеу бойынша сарапшылар</label>
+                <label class="option"><input type="checkbox" value="E"> Зейнеткерлер және зейнеталды жастағы азаматтар</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Бірінші санат әлеуметтік қолдауды қажет ететін азаматтар топтарымен, соның ішінде мүгедектігі бар адамдармен және зейнеткерлермен байланысты.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Әлеуметтік кәсіпкерліктің бірінші санатына кіретін әлеуметтік топтар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мүгедектігі бар баланы тәрбиелеп отырған ата-аналар</label>
+                <label class="option"><input type="checkbox" value="B"> Маркетингтік жоспар әзірлейтін консультанттар</label>
+                <label class="option"><input type="checkbox" value="C"> Балалар үйлері мен мектеп-интернаттардың түлектері</label>
+                <label class="option"><input type="checkbox" value="D"> Пробация қызметінде есепте тұрған адамдар</label>
+                <label class="option"><input type="checkbox" value="E"> Өндірістік жоспарды бекітетін мердігерлер</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Кодексте әлеуметтік кәсіпкерліктің бірінші санаты әлеуметтік осал топтармен байланыстырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлік субъектілерінің тізілімін жүргізетін орган</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік кіріс органы</label>
+                <label class="option"><input type="checkbox" value="B"> Техникалық реттеу органы</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік жөніндегі уәкілетті орган</label>
+                <label class="option"><input type="checkbox" value="D"> Жергілікті сот органы</label>
+                <label class="option"><input type="checkbox" value="E"> Тұтынушылар құқығын қорғау ұйымы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Әлеуметтік кәсіпкерлік субъектілерінің тізілімін кәсіпкерлік жөніндегі уәкілетті орган жүргізеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,B,E">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлік субъектілерінің тізілімінде қамтылатын мәліметтер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Дара кәсіпкердің немесе заңды тұлғаның атауы</label>
+                <label class="option"><input type="checkbox" value="B"> Сәйкестендіру нөмірі</label>
+                <label class="option"><input type="checkbox" value="C"> Маркетингтік бюджет құрылымы</label>
+                <label class="option"><input type="checkbox" value="D"> Өнімнің жарнамалық ұраны</label>
+                <label class="option"><input type="checkbox" value="E"> Әлеуметтік кәсіпкерлік субъектісінің санаты</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, B, E. Тізілімде атауы, сәйкестендіру нөмірі, мекенжайы, тізілімге енгізілу күні және әлеуметтік кәсіпкерлік субъектісінің санаты қамтылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Әлеуметтік кәсіпкерлік субъектілерінің тізілімі құқықтық тұрғыдан нені білдіреді?</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Әлеуметтік жобаларды қаржыландырудың сметалық жоспарын</label>
+                <label class="option"><input type="checkbox" value="B"> Әлеуметтік кәсіпорындардың өндірістік жабдықтар тізімін</label>
+                <label class="option"><input type="checkbox" value="C"> Қайырымдылық келісімшарттарының архивтік жинағын</label>
+                <label class="option"><input type="checkbox" value="D"> Әлеуметтік кәсіпкерлік субъектілері туралы мәліметтерді қамтитын электрондық дерекқорды</label>
+                <label class="option"><input type="checkbox" value="E"> Әлеуметтік жауапкершілік туралы ерікті жарнамалық есепті</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Әлеуметтік кәсіпкерлік субъектілерінің тізілімі — әлеуметтік кәсіпкерлік субъектілері туралы мәліметтерді қамтитын электрондық дерекқор.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-4-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-4-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="code-chapter-5">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · мемлекеттік реттеу</div>
+          <h3>Кәсіпкерлікті мемлекеттік реттеу</h3>
+
+          <p>
+            Бұл бөлімде кәсіпкерлікті мемлекеттік реттеудің мәні, мемлекеттік реттеу кезінде
+            кәсіпкерлік субъектілерінің құқықтарын сақтау, мүдделер теңгерімі, реттеудің тиімділігі,
+            сыбайлас жемқорлықтан азат болу, «бір терезе» қағидаты және кәсіпкерлікті мемлекеттік
+            реттеудің негізгі нысандары қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін негізгі бағыт: мемлекеттік реттеудің мақсатын, қағидаттарын және нақты
+            нысандарын ажырату. Реттеу кәсіпкерлікке артық кедергі жасау емес, қауіпсіздік,
+            тұтынушылар мүддесі, бәсекелестікті қорғау және нарықтағы тәртіпті қамтамасыз ету
+            құралы ретінде қарастырылады.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Мүдделер теңгерімі</strong>
+              <p>
+                Мемлекеттік реттеу тұтынушылардың, кәсіпкерлік субъектілерінің және мемлекеттің
+                мүдделерінің теңгерімін сақтауға бағытталады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қажетті ең аз жүктеме</strong>
+              <p>
+                Реттеу кәсіпкерлік субъектілеріне объективті түрде қажетті ең аз жүктеме кезінде
+                тұтынушылардың құқықтарын тиімді қорғауға тиіс.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Жаңа талаптарды енгізу шарты</strong>
+              <p>
+                Жаңа талаптар тұтынушылар мен мемлекет үшін пайда реттеу шығындарынан басым болған
+                жағдайда ғана енгізілуі мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Артық құжат талап етуге тыйым</strong>
+              <p>
+                Мемлекеттік органдар нормативтік құқықтық актілерде көзделмеген құжаттарды немесе
+                қосымша мәліметтерді кәсіпкерлік субъектілерінен талап ете алмайды.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Тиімді мемлекеттік реттеу</strong>
+              <p>
+                Тиімділік реттегіш құралдарды қалыптастыру шарттарын сақтау, міндетті рәсімдерді
+                енгізу, кәсіпкерлерге сенімді арттыру және жүйелі саясат жүргізу арқылы қамтамасыз етіледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Адалдық презумпциясы</strong>
+              <p>
+                Кәсіпкерлік субъектісі өз міндеттерін орындағанда немесе құқықтарын іске асырғанда
+                оның әрекеттерінің адалдығы көзделеді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Дәлелдеу міндеті</strong>
+              <p>
+                Заңнаманы бұзу фактісін куәландыратын дәлелдерді негіздеу және мән-жайларды ашу
+                мемлекеттік органдарға жүктеледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Белгісіздіктерді түсіндіру</strong>
+              <p>
+                Қазақстан Республикасы заңнамасының барлық белгісіздіктері кәсіпкерлік субъектісінің
+                пайдасына түсіндіріледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Сыбайлас жемқорлықтан азат болу</strong>
+              <p>
+                Мемлекеттік реттеуді енгізу және жүзеге асыру кезінде мүдделер қақтығысы мен құқықты
+                таңдап қолдану фактілері орын алмауға тиіс.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>«Бір терезе» қағидаты</strong>
+              <p>
+                Кәсіпкерлердің мемлекеттік органдармен байланысын азайту үшін барлық қажетті келісулер
+                ведомствоаралық өзара іс-қимыл арқылы алынуға тиіс.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мемлекеттік реттеу нысандары</strong>
+              <p>
+                Кәсіпкерлік субъектілерін мемлекеттік тіркеу, техникалық реттеу, бағалар мен тарифтерді
+                мемлекеттік реттеу, міндетті сақтандыру, бәсекелестікті қорғау және монополистік
+                қызметті шектеу мемлекеттік реттеу нысандарына жатады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Бәсекелестікті қорғау</strong>
+              <p>
+                Бәсекелестікті қорғау және монополистік қызметті шектеу кәсіпкерлікті мемлекеттік
+                реттеу нысандарының бірі болып табылады.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-5-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Кәсіпкерлікті мемлекеттік реттеудің мүдделер теңгеріміндегі негізгі бағыты</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің барлық шешімін мемлекеттік органға беру</label>
+                <label class="option"><input type="checkbox" value="B"> Тұтынушылар, кәсіпкерлік субъектілері және мемлекет мүдделерінің теңгерімін сақтау</label>
+                <label class="option"><input type="checkbox" value="C"> Нарықтағы барлық кәсіпорындарды бір ұйымдық нысанға көшіру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің баға белгілеу құқығын толық алып тастау</label>
+                <label class="option"><input type="checkbox" value="E"> Барлық кәсіпкерлік қызметті мемлекеттік кәсіпорын арқылы жүргізу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Мемлекеттік реттеу тұтынушылардың, кәсіпкерлік субъектілерінің және мемлекеттің мүдделерінің теңгерімін қамтамасыз етуге бағытталады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Мемлекеттік реттеу кезінде сақталатын талаптар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілеріне объективті қажетті ең аз жүктеме қою</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінен заңда көзделмеген құжаттарды талап ету</label>
+                <label class="option"><input type="checkbox" value="C"> Тұтынушылардың құқықтарын қорғауды екінші қатарға қою</label>
+                <label class="option"><input type="checkbox" value="D"> Қызмет қауіпсіздігінің жеткілікті деңгейін қамтамасыз ету</label>
+                <label class="option"><input type="checkbox" value="E"> Рәсімдерді әртүрлі түсіндіруге мүмкіндік беру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Реттеу қауіпсіздіктің жеткілікті деңгейін және кәсіпкерлік субъектісіне қажетті ең аз жүктемені қамтамасыз етуі тиіс.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Жеке кәсіпкерлік субъектілеріне жаңа талаптар енгізудің шарты</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Талаптар кәсіпкерлердің шығындарын көбейткен жағдайда енгізіледі</label>
+                <label class="option"><input type="checkbox" value="B"> Талаптар кез келген ведомстволық нұсқаумен енгізіледі</label>
+                <label class="option"><input type="checkbox" value="C"> Тұтынушылар мен мемлекет үшін пайда реттеу шығындарынан басым болған жағдайда енгізіледі</label>
+                <label class="option"><input type="checkbox" value="D"> Талаптар кәсіпкерлік субъектілерінің келісімінсіз әрқашан енгізіледі</label>
+                <label class="option"><input type="checkbox" value="E"> Талаптар нарықтағы жарнама шығынына қарай енгізіледі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Жаңа талаптар тұтынушылар мен мемлекет үшін пайда мемлекеттік реттеуді жүзеге асыру шығындарынан басым болған кезде ғана енгізілуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Мемлекеттік органдардың кәсіпкерлік субъектілерінен құжат талап етуіне қатысты дұрыс норма</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кез келген қосымша құжатты ауызша тапсырма негізінде талап етуге болады</label>
+                <label class="option"><input type="checkbox" value="B"> Нормативтік құқықтық актілерде көзделмеген құжаттарды талап етуге болмайды</label>
+                <label class="option"><input type="checkbox" value="C"> Құжаттар тізбесін тек тексеруші лауазымды адам анықтайды</label>
+                <label class="option"><input type="checkbox" value="D"> Қосымша мәліметтер кәсіпкерлік субъектісінің келісімінсіз кез келген көлемде талап етіледі</label>
+                <label class="option"><input type="checkbox" value="E"> Құжат талап ету тәртібі кәсіпкердің санатына байланысты қолданылмайды</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Мемлекеттік органдар нормативтік құқықтық актілерде көзделмеген құжаттарды немесе қосымша мәліметтерді талап етуге құқылы емес.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Кәсіпкерлікті мемлекеттік реттеудің тиімділігіне қол жеткізу жолдары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Реттегіш құралдарды қалыптастыру шарттарын сақтау</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілері үшін жаңа кедергілер жасау</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттің кәсіпкерлік субъектілеріне деген сенімін арттыру</label>
+                <label class="option"><input type="checkbox" value="D"> Реттеу рәсімдерін түсініксіз қалдыру</label>
+                <label class="option"><input type="checkbox" value="E"> Мемлекеттік реттеудің жүйелілігі мен дәйектілігін қамтамасыз ету</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Тиімді реттеу реттегіш құралдарды дұрыс қалыптастыруға, кәсіпкерлерге сенімді арттыруға және жүйелі саясат жүргізуге негізделеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Кәсіпкерлік субъектісінің адалдық презумпциясының мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкердің барлық әрекеті алдын ала заңсыз деп есептеледі</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкердің деректері дәлелсіз түрде күмәнді деп танылады</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкер өз құқықтарын іске асырғанда міндетті түрде кінәсін дәлелдейді</label>
+                <label class="option"><input type="checkbox" value="D"> Міндеттерді орындау және құқықтарды іске асыру кезінде кәсіпкер әрекеттерінің адалдығы көзделеді</label>
+                <label class="option"><input type="checkbox" value="E"> Адалдық презумпциясы тек мемлекеттік кәсіпорындарға қолданылады</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Мемлекеттік реттеу процесінде кәсіпкер өз міндеттерін орындағанда немесе құқықтарын іске асырғанда оның әрекеттерінің адалдығы көзделеді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Заңнаманы бұзу фактісін дәлелдеуге қатысты нормалар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Барлық дәлелдерді кәсіпкерлік субъектісі өзі жинауға міндетті</label>
+                <label class="option"><input type="checkbox" value="B"> Дәлелдерді негіздеу мемлекеттік органдарға жүктеледі</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкер ұсынған деректер бастапқыда жалған деп танылады</label>
+                <label class="option"><input type="checkbox" value="D"> Заңнаманың белгісіздігі мемлекеттік орган пайдасына түсіндіріледі</label>
+                <label class="option"><input type="checkbox" value="E"> Заңнаманың белгісіздіктері кәсіпкерлік субъектісінің пайдасына түсіндіріледі</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Заңнаманы бұзу фактісін дәлелдеу мемлекеттік органдарға жүктеледі, ал заңнаманың белгісіздіктері кәсіпкерлік субъектісінің пайдасына түсіндіріледі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Сыбайлас жемқорлықтан азат болу қағидатына сәйкес келетін талаптар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мүдделер қақтығысының орын алмауы</label>
+                <label class="option"><input type="checkbox" value="B"> Құқықты таңдап қолдануға мүмкіндік беру</label>
+                <label class="option"><input type="checkbox" value="C"> Құқықты таңдап қолдану фактілеріне жол бермеу</label>
+                <label class="option"><input type="checkbox" value="D"> Қызметтік өкілеттікті мүліктік артықшылық үшін пайдалану</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік субъектілерінің байланыстарын көбейту</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C. Мемлекеттік реттеу кезінде мүдделер қақтығысы және құқықты таңдап қолдану фактілері орын алмауға тиіс.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">«Бір терезе» қағидатының мемлекеттік реттеудегі мақсаты</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлердің әр органмен бөлек келісім алуын көбейту</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік қызметті тек бір салада жүргізуге рұқсат ету</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік органдардың құжат талап ету көлемін кеңейту</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің мемлекеттік органдармен байланыстарын шектеу</label>
+                <label class="option"><input type="checkbox" value="E"> Реттеу рәсімдерін ведомстволық деңгейде жасырын жүргізу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. «Бір терезе» қағидаты кәсіпкерлердің мемлекеттік органдармен байланыстарын азайтуға бағытталған.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,B,E">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Кәсіпкерлікті мемлекеттік реттеу нысандары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерін мемлекеттік тіркеу</label>
+                <label class="option"><input type="checkbox" value="B"> Техникалық реттеу</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпорынның ішкі корпоративтік мерекесін ұйымдастыру</label>
+                <label class="option"><input type="checkbox" value="D"> Жарнамалық стиль мен логотипті таңдау</label>
+                <label class="option"><input type="checkbox" value="E"> Бағалар мен тарифтерді мемлекеттік реттеу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, B, E. Мемлекеттік тіркеу, техникалық реттеу, бағалар мен тарифтерді реттеу кәсіпкерлікті мемлекеттік реттеу нысандарына жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C,D">
+              <div class="question-title">
+                <div class="q-num">11</div>
+                <div class="q-text">Кәсіпкерлікті мемлекеттік реттеудің бәсекелестікке қатысты нысандары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Тұтынушылардың жеке талғамын әкімшілік бекіту</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпорынның жарнамалық мәтінін міндетті келісу</label>
+                <label class="option"><input type="checkbox" value="C"> Бәсекелестікті қорғау</label>
+                <label class="option"><input type="checkbox" value="D"> Монополистік қызметті шектеу</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкердің бренд атауын нарық үлесімен ауыстыру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: C, D. Бәсекелестікті қорғау және монополистік қызметті шектеу мемлекеттік реттеу нысандарына кіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">12</div>
+                <div class="q-text">Мемлекеттік реттеу нысандарына жататын құқықтық құралдар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Тауарлық белгінің көркемдік сипаттамасын бекіту</label>
+                <label class="option"><input type="checkbox" value="B"> Азаматтық-құқықтық жауапкершілікті міндетті сақтандыру</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік субъектісінің әлеуметтік желі жоспарын бекіту</label>
+                <label class="option"><input type="checkbox" value="D"> Қызметкерлердің жеке тұтыну шығындарын реттеу</label>
+                <label class="option"><input type="checkbox" value="E"> Қазақстан Республикасының заңдарында белгіленген өзге де реттеу нысандары</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Міндетті сақтандыру және заңдарда белгіленген өзге де нысандар кәсіпкерлікті мемлекеттік реттеуге жатады.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-5-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-5-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+            <section class="section" id="code-chapter-6">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · мемлекеттік қолдау</div>
+          <h3>Жеке кәсіпкерлікті мемлекеттік қолдау</h3>
+
+          <p>
+            Бұл бөлімде жеке кәсіпкерлікті мемлекеттік қолдау ұғымы, оның мақсаты,
+            қолдау бағыттары, кәсіпкерлік бастаманы іске асыру үшін құқықтық және
+            экономикалық жағдайлар жасау, сондай-ақ жеке кәсіпкерлік субъектілерін
+            дамытуға арналған мемлекеттік шаралар қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін негізгі ой: жеке кәсіпкерлікті мемлекеттік қолдау — кәсіпкерлікке тікелей
+            әкімшілік араласу емес, жеке кәсіпкерлікті дамытуға жағдай жасауға бағытталған
+            мемлекеттік шаралар кешені.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Мемлекеттік қолдау ұғымы</strong>
+              <p>
+                Жеке кәсіпкерлікті мемлекеттік қолдау — Қазақстан Республикасында жеке
+                кәсіпкерлікті дамытуды ынталандыру және кәсіпкерлік бастаманы іске асыру үшін
+                қолайлы құқықтық, экономикалық жағдайлар жасау жөніндегі мемлекеттік шаралар кешені.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қолдаудың негізгі мақсаты</strong>
+              <p>
+                Негізгі мақсат — кәсіпкерлік бастаманы дамытуға, нарық субъектілерінің жұмыс істеуіне
+                және кәсіпкерлік қызметтің тұрақты дамуына жағдай жасау.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Шағын және орта кәсіпкерлік</strong>
+              <p>
+                Жеке кәсіпкерлікті мемлекеттік қолдаудың негізгі бағыттарының бірі — шағын және
+                орта кәсіпкерлікті, оның ішінде әлеуметтік кәсіпкерлікті қолдау.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Ауылдық кәсіпкерлік</strong>
+              <p>
+                Қолдау бағыттарының ішінде агроөнеркәсіптік кешен және ауылдық жердегі
+                кәсіпкерлік қызметтің ауыл шаруашылығына жатпайтын түрлері де көрсетіледі.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Өнеркәсіпті ынталандыру</strong>
+              <p>
+                Өнеркәсіпті мемлекеттік ынталандыру жеке кәсіпкерлікті қолдаудың маңызды
+                бағыттарының бірі ретінде қарастырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Инновациялық қызмет</strong>
+              <p>
+                Инновациялық қызметті қолдау кәсіпкерлік субъектілерінің жаңа технология,
+                жаңа өнім, жаңа ұйымдастыру тәсілдерін дамытуына жағдай жасайды.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Арнайы экономикалық аймақтар</strong>
+              <p>
+                Арнайы экономикалық аймақтар жеке кәсіпкерлікті қолдау бағыттарының бірі
+                ретінде кәсіпкерлік қызметке қолайлы жағдайлар қалыптастыруға бағытталады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Индустриялық аймақтар</strong>
+              <p>
+                Индустриялық аймақтар өндірістік және кәсіпкерлік инфрақұрылымды дамытуға,
+                кәсіпкерлік субъектілерінің орналасуына және өндірістік қызметті ұйымдастыруға
+                мүмкіндік береді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Инвестициялық қызмет</strong>
+              <p>
+                Инвестициялық қызметті қолдау кәсіпкерлік жобаларды қаржыландыруға,
+                өндірісті кеңейтуге және жаңа жұмыс орындарын қалыптастыруға жағдай жасайды.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қазақстандық тауар өндірушілер</strong>
+              <p>
+                Қазақстандық тауар өндірушілердің кәсіпкерлігін қолдау ұлттық өндірісті,
+                ішкі нарықтағы отандық өнімнің бәсекеге қабілеттілігін және экономикалық
+                белсенділікті дамытуға бағытталады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Креативті индустриялар</strong>
+              <p>
+                Жеке кәсіпкерлік субъектілерінің креативті индустриялар саласындағы қызметі
+                де мемлекеттік қолдаудың бағыттары қатарында қарастырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қалдықтармен жұмыс істеу</strong>
+              <p>
+                Қалдықтармен жұмыс істеу саласындағы кәсіпкерлік те қолдау бағыттарының бірі
+                ретінде экологиялық және экономикалық маңызы бар қызмет түрлерімен байланысты.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-6-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Жеке кәсіпкерлікті мемлекеттік қолдау ұғымына сәйкес келетін анықтама</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің ішкі басқару шешімдерін мемлекеттік органның тұрақты бекітуі</label>
+                <label class="option"><input type="checkbox" value="B"> Жеке кәсіпкерлікті дамытуға және кәсіпкерлік бастаманы іске асыруға жағдай жасау жөніндегі мемлекеттік шаралар кешені</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік субъектілерін бір ұйымдық-құқықтық нысанға міндетті түрде көшіру тәртібі</label>
+                <label class="option"><input type="checkbox" value="D"> Жеке кәсіпкерлік субъектілерінің нарықтағы бағасын әкімшілік жолмен теңестіру жүйесі</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік қызметті мемлекеттік кәсіпорындар арқылы ғана жүзеге асыру талабы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Жеке кәсіпкерлікті мемлекеттік қолдау кәсіпкерлікті дамытуға, кәсіпкерлік бастаманы іске асыруға қолайлы құқықтық және экономикалық жағдай жасауға бағытталған мемлекеттік шаралар кешені.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Жеке кәсіпкерлікті мемлекеттік қолдаудың мазмұнына кіретін бағыттар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жеке кәсіпкерлікті дамытуды ынталандыру</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің барлық келісімдерін мемлекет атынан жасау</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік бастаманы ведомстволық тыйыммен шектеу</label>
+                <label class="option"><input type="checkbox" value="D"> Қолайлы құқықтық және экономикалық жағдайлар жасау</label>
+                <label class="option"><input type="checkbox" value="E"> Жеке кәсіпкерлік субъектілерін мемлекеттік орган бөлімшесіне айналдыру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Қолдау жеке кәсіпкерлікті дамытуды ынталандыруға және кәсіпкерлік бастаманы іске асыру үшін қолайлы жағдайлар жасауға бағытталады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Жеке кәсіпкерлікті мемлекеттік қолдаудың негізгі бағыттары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Шағын және орта кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкердің жеке тұтыну шығындарын өтеу</label>
+                <label class="option"><input type="checkbox" value="C"> Агроөнеркәсіптік кешен және ауылдық жердегі кәсіпкерлік</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің жарнамалық стилін бекіту</label>
+                <label class="option"><input type="checkbox" value="E"> Инновациялық қызмет</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Қолдау бағыттарына шағын және орта кәсіпкерлік, агроөнеркәсіптік кешен мен ауылдық кәсіпкерлік және инновациялық қызмет кіреді.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Жеке кәсіпкерлікті қолдаудың өндірістік-инфрақұрылымдық бағыттары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Тұтынушылардың жеке таңдауын әкімшілік бақылау</label>
+                <label class="option"><input type="checkbox" value="B"> Өнеркәсіпті мемлекеттік ынталандыру</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкердің жеке табысын тең бөлу</label>
+                <label class="option"><input type="checkbox" value="D"> Индустриялық аймақтар</label>
+                <label class="option"><input type="checkbox" value="E"> Бренд атауын мемлекеттік органның таңдауы</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D. Өнеркәсіпті мемлекеттік ынталандыру және индустриялық аймақтар өндірістік-инфрақұрылымдық қолдау бағыттарымен байланысты.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Арнайы экономикалық аймақтардың кәсіпкерлікті қолдаудағы мәні</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің барлық мәмілесін сот арқылы бекіту</label>
+                <label class="option"><input type="checkbox" value="B"> Шағын кәсіпкерлікті ірі кәсіпкерлікке автоматты түрде ауыстыру</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік қызметке қолайлы экономикалық және ұйымдастырушылық жағдай қалыптастыру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің бағасын бірыңғай тарифпен алмастыру</label>
+                <label class="option"><input type="checkbox" value="E"> Жеке кәсіпкерлікті мемлекеттік кәсіпорын қызметімен шектеу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Арнайы экономикалық аймақтар кәсіпкерлік қызмет үшін қолайлы жағдайлар қалыптастыруға бағытталған қолдау құралдарының бірі ретінде қарастырылады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,E">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Кәсіпкерлікті қолдаудың инвестициялық және инновациялық мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Жаңа өнім мен технологияны дамытуға жағдай жасау</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің құқық қабілеттілігін алып тастау</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкердің барлық өндірістік шешімін әкімшілік бекіту</label>
+                <label class="option"><input type="checkbox" value="D"> Нарықтағы барлық субъектілердің табысын бір деңгейге келтіру</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік жобаларды қаржыландыру мен өндірісті кеңейтуге жағдай жасау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, E. Инновациялық қызмет жаңа өнім мен технологияларды дамытуға, ал инвестициялық қызмет кәсіпкерлік жобаларды қаржыландыруға және өндірісті кеңейтуге байланысты.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Қазақстандық тауар өндірушілер кәсіпкерлігін қолдаудың бағыты</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Шетелдік өнімнің ішкі нарықтағы артықшылығын күшейту</label>
+                <label class="option"><input type="checkbox" value="B"> Отандық кәсіпорындардың ұйымдық нысанын бірдей ету</label>
+                <label class="option"><input type="checkbox" value="C"> Кәсіпкерлік субъектілерінің өндіріс көлемін әкімшілік қысқарту</label>
+                <label class="option"><input type="checkbox" value="D"> Отандық өндіріс пен ұлттық тауарлардың бәсекеге қабілеттілігін дамыту</label>
+                <label class="option"><input type="checkbox" value="E"> Тауар өндірушілердің нарыққа шығуын толық шектеу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Қазақстандық тауар өндірушілерді қолдау отандық өндірісті және ұлттық тауарлардың бәсекеге қабілеттілігін дамытуға бағытталады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,D">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Жеке кәсіпкерлікті мемлекеттік қолдау бағыттарына жататын салалар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Инвестициялық қызмет</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкердің жеке тұрмыстық шығындары</label>
+                <label class="option"><input type="checkbox" value="C"> Креативті индустриялар саласындағы қызмет</label>
+                <label class="option"><input type="checkbox" value="D"> Қалдықтармен жұмыс істеу</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкердің отбасылық тұтыну жоспары</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, D. Инвестициялық қызмет, креативті индустриялар және қалдықтармен жұмыс істеу жеке кәсіпкерлікті қолдау бағыттарына жатады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,E">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">Ауылдық жердегі кәсіпкерлікті қолдау мазмұнына сәйкес келетін бағыттар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Ауылдық кәсіпкерлікті тек мемлекеттік мекемелер арқылы жүргізу</label>
+                <label class="option"><input type="checkbox" value="B"> Агроөнеркәсіптік кешенді қолдау</label>
+                <label class="option"><input type="checkbox" value="C"> Ауылдық кәсіпкерлердің нарыққа шығуын толық тоқтату</label>
+                <label class="option"><input type="checkbox" value="D"> Ауылдық жердегі кәсіпкерлік қызметті бір ғана өнім түрімен шектеу</label>
+                <label class="option"><input type="checkbox" value="E"> Ауылдық жердегі ауыл шаруашылығына жатпайтын кәсіпкерлік қызмет түрлерін қолдау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, E. Қолдау бағыттарының бірі — агроөнеркәсіптік кешен және ауылдық жердегі ауыл шаруашылығына жатпайтын кәсіпкерлік қызмет түрлері.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Креативті индустриялар саласындағы кәсіпкерлікті қолдау қандай мазмұнмен байланысты?</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің құқықтарын тоқтатумен</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік қызметті тек өндірістік цехпен шектеумен</label>
+                <label class="option"><input type="checkbox" value="C"> Жеке кәсіпкерлік субъектілерінің шығармашылық және зияткерлік негіздегі қызметін дамытуға жағдай жасаумен</label>
+                <label class="option"><input type="checkbox" value="D"> Барлық кәсіпкерлердің қызметін бір үлгілік жоспарға көшірумен</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік бастаманы мемлекеттік тіркеусіз жүргізуге тыйым салумен</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Креативті индустриялар кәсіпкерліктің шығармашылық және зияткерлік негіздегі қызмет түрлерін дамытуға байланысты.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-6-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-6-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="code-chapter-7">
+        <div class="content-block">
+          <div class="section-kicker">Кәсіпкерлік кодексі · шағын және орта кәсіпкерлік</div>
+          <h3>Шағын және орта кәсіпкерлікті қолдау бағыттары мен құралдары</h3>
+
+          <p>
+            Бұл бөлімде шағын және орта кәсіпкерлікті қолдау мен дамытуға арналған
+            мемлекеттік саясат, қолдау шараларын ұйымдастыру, мүліктік қолдау,
+            пайдаланылмайтын мемлекеттік объектілерді беру, кәсіпкерлік субъектілерінің
+            мүдделерін қозғайтын нормативтік құқықтық актілерді әзірлеуге қатысу және
+            қолдау шараларын үйлестіру қарастырылады.
+          </p>
+
+          <div class="note">
+            КТ үшін негізгі ой: шағын және орта кәсіпкерлікті қолдау тек қаржы берумен
+            шектелмейді. Ол мүліктік, ұйымдастырушылық, құқықтық, инфрақұрылымдық және
+            нормативтік қатысу мүмкіндіктерін қамтиды.
+          </div>
+
+          <div class="theory-grid">
+            <div class="theory-card">
+              <strong>Мемлекеттік саясат</strong>
+              <p>
+                Мемлекет жеке кәсіпкерлікті қолдау және дамыту саласында мемлекеттік саясатты
+                қалыптастырады, шағын және орта кәсіпкерлікті қолдау шараларының орындалуын
+                ұйымдастырады және үйлестіреді.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Қолдау шараларын үйлестіру</strong>
+              <p>
+                Шағын және орта кәсіпкерлікті қолдау мен дамыту шараларын ұйымдастыру және
+                үйлестіру мемлекеттік саясаттың маңызды бөлігі болып табылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Мүліктік қолдау</strong>
+              <p>
+                Мемлекеттік меншіктің пайдаланылмайтын объектілері және олар алып жатқан жер
+                учаскелері шағын және орта кәсіпкерлік субъектілеріне мүліктік жалдауға,
+                жалға немесе сенімгерлік басқаруға берілуі мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Кейіннен меншікке беру</strong>
+              <p>
+                Пайдаланылмайтын мемлекеттік объектілер өндірістік қызметті ұйымдастыру және
+                халыққа қызмет көрсету саласын дамыту үшін кейіннен меншікке өтеусіз беру
+                мүмкіндігімен берілуі мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Нормативтік актілерге қатысу</strong>
+              <p>
+                Жеке кәсіпкерлік субъектілерінің мүдделерін қозғайтын нормативтік құқықтық
+                актілердің жобаларына кәсіпкерлік субъектілерінің қатысуы маңызды құқықтық
+                қолдау тетігі ретінде қарастырылады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Орталық және жергілікті органдар</strong>
+              <p>
+                Кәсіпкерлік субъектілерінің мүдделерін қозғайтын жобаларды орталық мемлекеттік,
+                жергілікті өкілді және атқарушы органдар әзірлеуі мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Өндірістік қызметті ұйымдастыру</strong>
+              <p>
+                Шағын және орта кәсіпкерлікке пайдаланылмайтын мемлекеттік объектілерді беру
+                өндірістік қызметті ұйымдастыруға жағдай жасауға бағытталады.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Халыққа қызмет көрсету</strong>
+              <p>
+                Мемлекеттік объектілерді кәсіпкерлерге беру халыққа қызмет көрсету саласын
+                дамыту мақсатымен де байланысты болуы мүмкін.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Құқықтық орта</strong>
+              <p>
+                Шағын және орта кәсіпкерлікті қолдаудың құқықтық мазмұны кәсіпкерлердің
+                мүдделерін ескеретін нормативтік шешімдер қабылдауға қатысуымен байланысты.
+              </p>
+            </div>
+
+            <div class="theory-card">
+              <strong>Ұйымдастырушылық қолдау</strong>
+              <p>
+                Қолдау шараларын ұйымдастыру және үйлестіру кәсіпкерлік субъектілеріне
+                мемлекеттік саясаттың нақты тетіктері арқылы көмек көрсетуге мүмкіндік береді.
+              </p>
+            </div>
+          </div>
+
+          <div class="test-box" data-test="code-chapter-7-test">
+            <h3>КТ-стиль тесттер</h3>
+            <p class="section-desc">
+              Бір немесе бірнеше дұрыс жауап болуы мүмкін. Барлық дұрыс жауапты белгілеңіз.
+            </p>
+
+            <div class="question" data-answer="A,C">
+              <div class="question-title">
+                <div class="q-num">1</div>
+                <div class="q-text">Шағын және орта кәсіпкерлікті қолдау саласындағы мемлекеттік саясат мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Қолдау және дамыту шараларының орындалуын ұйымдастыру</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің барлық ішкі мәмілелерін мемлекеттік орган атынан жасау</label>
+                <label class="option"><input type="checkbox" value="C"> Мемлекеттік қолдау шараларын үйлестіру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлердің нарыққа кіруін толық тоқтату</label>
+                <label class="option"><input type="checkbox" value="E"> Шағын кәсіпкерлікті міндетті түрде мемлекеттік кәсіпорынға айналдыру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C. Шағын және орта кәсіпкерлікті қолдау шараларының орындалуын ұйымдастыру және үйлестіру мемлекеттік саясаттың маңызды бөлігі.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D,E">
+              <div class="question-title">
+                <div class="q-num">2</div>
+                <div class="q-text">Шағын және орта кәсіпкерлікке мүліктік қолдау ретінде берілуі мүмкін объектілер</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкердің жеке тұтыну заттары</label>
+                <label class="option"><input type="checkbox" value="B"> Мемлекеттік меншіктің пайдаланылмайтын объектілері</label>
+                <label class="option"><input type="checkbox" value="C"> Бәсекелес кәсіпорындардың коммерциялық құпиясы</label>
+                <label class="option"><input type="checkbox" value="D"> Пайдаланылмайтын объектілер алып жатқан жер учаскелері</label>
+                <label class="option"><input type="checkbox" value="E"> Өндірістік қызметке жарамды мемлекеттік мүлік объектілері</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D, E. Мүліктік қолдауда пайдаланылмайтын мемлекеттік объектілер және олар алып жатқан жер учаскелері кәсіпкерлік субъектілеріне берілуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,D">
+              <div class="question-title">
+                <div class="q-num">3</div>
+                <div class="q-text">Пайдаланылмайтын мемлекеттік объектілерді шағын және орта кәсіпкерлікке беру нысандары</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мүліктік жалдау немесе жалға беру</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектісінің салық міндетін жою</label>
+                <label class="option"><input type="checkbox" value="C"> Бәсекелес ұйымның активін мәжбүрлеп беру</label>
+                <label class="option"><input type="checkbox" value="D"> Сенімгерлік басқаруға беру</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкердің жеке мүлкін мемлекеттік балансқа алу</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, D. Пайдаланылмайтын мемлекеттік объектілер мүліктік жалдауға, жалға немесе сенімгерлік басқаруға берілуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <div class="question-title">
+                <div class="q-num">4</div>
+                <div class="q-text">Мүліктік қолдаудың өндірістік мақсатқа байланысты мазмұны</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Мемлекеттік объектілерді кәсіпкердің жеке тұрмыстық пайдалануына беру</label>
+                <label class="option"><input type="checkbox" value="B"> Объектілерді кәсіпкерлік қызметтен тыс әкімшілік сақтау үшін беру</label>
+                <label class="option"><input type="checkbox" value="C"> Өндірістік қызметті ұйымдастыру және халыққа қызмет көрсету саласын дамыту үшін беру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің нарықтағы бәсекесін тоқтату үшін беру</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкердің барлық қызметін мемлекеттік бақылау бөліміне ауыстыру үшін беру</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: C. Мұндай мүліктік қолдау өндірістік қызметті ұйымдастыруға және халыққа қызмет көрсету саласын дамытуға бағытталады.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <div class="question-title">
+                <div class="q-num">5</div>
+                <div class="q-text">Мемлекеттік объектілерді кейіннен меншікке беру ерекшелігі</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Объектілер тек қысқа мерзімді әкімшілік пайдалануға беріледі</label>
+                <label class="option"><input type="checkbox" value="B"> Белгіленген шарттарда кейіннен меншікке өтеусіз беру мүмкіндігі көзделеді</label>
+                <label class="option"><input type="checkbox" value="C"> Объектілер тек мемлекеттік кәсіпорындарға қайта бөлінеді</label>
+                <label class="option"><input type="checkbox" value="D"> Объектілер кәсіпкерлік қызметке пайдаланылмайтын мүлік ретінде сақталады</label>
+                <label class="option"><input type="checkbox" value="E"> Объектілерді беру кәсіпкерлік субъектісінің құқықтарын тоқтатады</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: B. Пайдаланылмайтын мемлекеттік объектілер кейіннен меншікке өтеусіз беру мүмкіндігімен мүліктік жалдауға немесе сенімгерлік басқаруға берілуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,E">
+              <div class="question-title">
+                <div class="q-num">6</div>
+                <div class="q-text">Кәсіпкерлік субъектілерінің мүдделерін қозғайтын нормативтік құқықтық актілерге қатысты қатысушылар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Орталық мемлекеттік органдар</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкердің жеке сатып алушылары</label>
+                <label class="option"><input type="checkbox" value="C"> Бәсекелес кәсіпорындардың ішкі бөлімдері</label>
+                <label class="option"><input type="checkbox" value="D"> Коммерциялық құпияны пайдаланатын жеке тұлғалар</label>
+                <label class="option"><input type="checkbox" value="E"> Жергілікті өкілді және атқарушы органдар</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, E. Кәсіпкерлік субъектілерінің мүдделерін қозғайтын жобаларды орталық мемлекеттік, жергілікті өкілді және атқарушы органдар әзірлеуі мүмкін.
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <div class="question-title">
+                <div class="q-num">7</div>
+                <div class="q-text">Кәсіпкерлік субъектілерінің мүдделерін қозғайтын актілерді әзірлеудегі құқықтық қолдау мәні</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлік субъектілерінің құқықтық қатысуын толық шектеу</label>
+                <label class="option"><input type="checkbox" value="B"> Нормативтік актілерді кәсіпкерлерге жарияламай қабылдау</label>
+                <label class="option"><input type="checkbox" value="C"> Құқықтық актілерді тек бақылау органдарының ішкі шешімі ретінде сақтау</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік субъектілерінің мүдделерін ескеретін жобаларды қарауға қатысу мүмкіндігі</label>
+                <label class="option"><input type="checkbox" value="E"> Кәсіпкерлік субъектілерін нормативтік талқылаудан алып тастау</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауап: D. Құқықтық қолдау кәсіпкерлердің мүдделерін қозғайтын нормативтік құқықтық актілерді әзірлеу және қарау процесіне қатысу мүмкіндігімен байланысты.
+              </div>
+            </div>
+
+            <div class="question" data-answer="A,C,E">
+              <div class="question-title">
+                <div class="q-num">8</div>
+                <div class="q-text">Шағын және орта кәсіпкерлікті қолдаудың мазмұнына сәйкес келетін құралдар</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Қолдау шараларын ұйымдастыру</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерін нарықтан шығару</label>
+                <label class="option"><input type="checkbox" value="C"> Қолдау шараларын үйлестіру</label>
+                <label class="option"><input type="checkbox" value="D"> Кәсіпкерлік қызметті тек мемлекеттік кәсіпорын арқылы жүргізу</label>
+                <label class="option"><input type="checkbox" value="E"> Мүліктік қолдау тетіктерін қолдану</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: A, C, E. Шағын және орта кәсіпкерлікті қолдау ұйымдастыру, үйлестіру және мүліктік қолдау тетіктерін қамтиды.
+              </div>
+            </div>
+
+            <div class="question" data-answer="C,E">
+              <div class="question-title">
+                <div class="q-num">9</div>
+                <div class="q-text">Мүліктік қолдау халыққа қызмет көрсету саласына қалай әсер етеді?</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Халыққа қызмет көрсету саласын кәсіпкерлік қызметтен бөледі</label>
+                <label class="option"><input type="checkbox" value="B"> Қызмет көрсету субъектілерін мемлекеттік тіркеуден босатады</label>
+                <label class="option"><input type="checkbox" value="C"> Қызмет көрсету саласын дамытуға өндірістік және мүліктік база береді</label>
+                <label class="option"><input type="checkbox" value="D"> Қызмет көрсету нарығындағы барлық бағаларды кәсіпкер өзі емес, тұтынушы бекітеді</label>
+                <label class="option"><input type="checkbox" value="E"> Пайдаланылмайтын объектілерді кәсіпкерлік қызметке тартуға мүмкіндік береді</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: C, E. Мүліктік қолдау пайдаланылмайтын объектілерді кәсіпкерлік қызметке тартып, халыққа қызмет көрсету саласын дамытуға жағдай жасайды.
+              </div>
+            </div>
+
+            <div class="question" data-answer="B,D">
+              <div class="question-title">
+                <div class="q-num">10</div>
+                <div class="q-text">Шағын және орта кәсіпкерлікті қолдаудың құқықтық және ұйымдастырушылық сипаты</div>
+              </div>
+
+              <div class="options">
+                <label class="option"><input type="checkbox" value="A"> Кәсіпкерлердің құқықтық мүдделерін ескермеу</label>
+                <label class="option"><input type="checkbox" value="B"> Кәсіпкерлік субъектілерінің мүдделерін қозғайтын құқықтық актілерге қатысу</label>
+                <label class="option"><input type="checkbox" value="C"> Қолдау шараларын әр кәсіпкер өзі жеке мемлекеттік саясат ретінде бекітуі</label>
+                <label class="option"><input type="checkbox" value="D"> Мемлекеттік қолдау шараларының орындалуын ұйымдастыру және үйлестіру</label>
+                <label class="option"><input type="checkbox" value="E"> Мүліктік қолдау құралдарын кәсіпкерлік қызметтен тыс қолдану</label>
+              </div>
+
+              <div class="explanation">
+                Дұрыс жауаптар: B, D. Қолдаудың құқықтық сипаты актілерге қатысумен, ұйымдастырушылық сипаты қолдау шараларын ұйымдастыру және үйлестірумен байланысты.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="button" onclick="checkSection('code-chapter-7-test')">
+              Нәтижені көрсету
+            </button>
+
+            <div class="result-panel" id="result-code-chapter-7-test">
+              <strong>Нәтиже:</strong>
+              <span class="result-text">Жауаптар тексерілгеннен кейін нәтиже осы жерде көрсетіледі.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
+      
+      
