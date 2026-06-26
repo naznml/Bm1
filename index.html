@@ -4954,3 +4954,109 @@
 <p>
                 Қазақстанда шығарылатын тауарларды, орындалатын жұмыстарды және көрсетілетін
                 қызметтерді дамытуға қол
+
+               дау көрсету ұлттық мүдделерді қорғауға және отандық өнімнің бәсекеге қабілеттілігін арттыруға бағытталады.
+              </p>
+            </div>
+            <div class="theory-card">
+              <strong>Мемлекеттің шектеулі қатысуы</strong>
+              <p>
+                Мемлекет кәсіпкерлік қызметке заңда белгіленген шекте ғана қатысады. Бұл нарықтағы жеке бастаманы, адал бәсекелестікті және кәсіпкерлік еркіндігін сақтауға бағытталған.
+              </p>
+            </div>
+          </div>
+          <div class="note">
+            Бұл бөлімнің толық тесттері келесі нұсқада толықтырылады. Алдыңғы бөлімдердің барлық «Нәтижені көрсету» батырмалары төмендегі скрипт арқылы жұмыс істейді.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function normalizeAnswers(value){
+      return String(value || '')
+        .split(',')
+        .map(function(item){ return item.trim(); })
+        .filter(Boolean)
+        .sort();
+    }
+
+    function sameAnswers(selected, correct){
+      if(selected.length !== correct.length) return false;
+      for(var i = 0; i < selected.length; i++){
+        if(selected[i] !== correct[i]) return false;
+      }
+      return true;
+    }
+
+    function clearQuestionState(question){
+      question.classList.remove('correct', 'incorrect');
+      question.querySelectorAll('.option').forEach(function(option){
+        option.classList.remove('right-answer', 'wrong-answer');
+      });
+    }
+
+    function checkSection(testId){
+      var testBox = document.querySelector('[data-test="' + testId + '"]');
+      var resultPanel = document.getElementById('result-' + testId);
+      if(!testBox){ return false; }
+
+      var questions = Array.prototype.slice.call(testBox.querySelectorAll('.question'));
+      var total = questions.length;
+      var score = 0;
+      var answered = 0;
+
+      questions.forEach(function(question){
+        clearQuestionState(question);
+
+        var correct = normalizeAnswers(question.getAttribute('data-answer'));
+        var checkedInputs = Array.prototype.slice.call(question.querySelectorAll('input[type="checkbox"]:checked'));
+        var selected = checkedInputs.map(function(input){ return input.value; }).sort();
+
+        if(selected.length > 0){ answered++; }
+
+        question.querySelectorAll('.option').forEach(function(option){
+          var input = option.querySelector('input[type="checkbox"]');
+          if(!input){ return; }
+          if(correct.indexOf(input.value) !== -1){
+            option.classList.add('right-answer');
+          }
+          if(input.checked && correct.indexOf(input.value) === -1){
+            option.classList.add('wrong-answer');
+          }
+        });
+
+        var explanation = question.querySelector('.explanation');
+        if(explanation){ explanation.style.display = 'block'; }
+
+        if(sameAnswers(selected, correct)){
+          score++;
+          question.classList.add('correct');
+        }else{
+          question.classList.add('incorrect');
+        }
+      });
+
+      if(resultPanel){
+        resultPanel.style.display = 'block';
+        var resultText = resultPanel.querySelector('.result-text');
+        if(resultText){
+          resultText.textContent = 'Сіз ' + total + ' сұрақтың ' + score + ' сұрағына дұрыс жауап бердіңіз. Белгіленген сұрақтар: ' + answered + '/' + total + '.';
+        }
+        resultPanel.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+      return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.result-btn[data-check]').forEach(function(button){
+        button.addEventListener('click', function(event){
+          event.preventDefault();
+          checkSection(button.getAttribute('data-check'));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
